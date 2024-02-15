@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 export default function ThemeProvider({children}) {
 
-    const [theme, setTheme] = useState('#252525');
+    const [theme, setTheme] = useState('rgba(19, 19, 19, 1)');
 
     return (
             <Theme.Provider value={{theme, setTheme}}>

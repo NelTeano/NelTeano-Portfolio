@@ -38,14 +38,14 @@ const navPages = [
         link: '/',
     },
     {
-        page: 'ABOUT',
+        page: 'CONTACT',
         link: '/',
     },
 ]
 
 export default function Header({mt}) {
 
-    const [anchorElNav, setAnchorElNav] = useState(true);
+    const [anchorElNav, setAnchorElNav] = useState(false);
 
     const handleOpenNavMenu = () => {
         setAnchorElNav(true);
@@ -91,11 +91,19 @@ export default function Header({mt}) {
 
     return (
         <>
-            <AppBar position="sticky" sx={{mt: mt, backgroundColor: 'transparent', }}>
+            <AppBar position="sticky" sx={{mt: mt, backgroundColor: 'transparent', boxShadow: 'none' }}>
                 <Container maxWidth="xl">
                     <Box sx={{display: 'flex', justifyContent:'space-between', alignItems: 'center', height: '100px',}}>
                         <Box>
-                            <Typography>Logo</Typography>
+                            <Typography
+                                sx={{
+                                    fontWeight: '700',
+                                    fontSize: '25px',
+                                    fontFamily: 'Poppins',
+                                }}  
+                            >
+                                NelTeano
+                            </Typography>
                         </Box>
                         <Box sx={{display: { xs: 'none', md:'flex'}, gap:'40px', }}>
                             {navPages.map((pages, index)=>(

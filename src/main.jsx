@@ -7,13 +7,28 @@ import { BrowserRouter } from 'react-router-dom'
 import './global.css'
 
 // CONTEXT PROVIDER
-import ThemeProvider from './context/Theme/ThemeProvider.jsx'
+import ThemeProviderContext from './context/Theme/ThemeProvider.jsx'
+
+import { ThemeProvider, createTheme } from '@mui/material';
+
+const theme = createTheme({
+  typography: {
+      fontFamily: [
+          'Poppins',
+          'Stretch Pro, Arial, sans-serif',
+      ].join(','),
+  },
+});
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <App />      
+      <ThemeProvider theme={theme}>
+        <ThemeProviderContext>
+          <App />      
+        </ThemeProviderContext>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
