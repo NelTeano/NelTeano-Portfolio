@@ -6,10 +6,15 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import './global.css'
 
+// CONTEXT PROVIDER
+import ThemeProvider from './context/Theme/ThemeProvider.jsx'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ThemeProvider>
+        <App />      
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

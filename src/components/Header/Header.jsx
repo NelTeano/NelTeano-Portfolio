@@ -1,80 +1,133 @@
 import { useState } from 'react';
+import PropTypes  from 'prop-types'
+
+// COMPONENTS
 import { 
-    AppBar, 
-    Toolbar, 
+    AppBar,  
     Container, 
     Typography,
     Box,
-    Menu,
-    MenuItem,
-    Button,
     IconButton,
-    Avatar,
-    Tooltip
+    SwipeableDrawer,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Divider
 } from '@mui/material';
 
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
-// const pages = ['Products', 'Pricing', 'Blog'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// ICONS
+import {
+    Menu as MenuIcon,
+    Face6TwoTone as Face6TwoToneIcon,
+} from '@mui/icons-material'; 
+
+
+
 
 const navPages = [
     {
-        page: 'Products',
+        page: 'HOME',
         link: '/',
     },
     {
-        page: 'Pricing',
+        page: 'WORK',
         link: '/',
     },
     {
-        page: 'Blog',
+        page: 'ABOUT',
         link: '/',
     },
 ]
 
-export default function Header() {
+export default function Header({mt}) {
 
-    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(true);
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
+    const handleOpenNavMenu = () => {
+        setAnchorElNav(true);
     };
     
     const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-      };
+        setAnchorElNav(false);
+    };
 
-      
+    const list = () => (
+            <Box
+                sx={{ width: 250 }}
+                role="presentation"
+                onClick={handleCloseNavMenu}
+                onKeyDown={handleCloseNavMenu}
+            >
+                <List>
+                    <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                        <Face6TwoToneIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Profile" />
+                    </ListItemButton>
+                    </ListItem>
+                </List>
+                <Divider />
+                <List>
+                    {navPages.map((item, index) => (
+                    <ListItem key={index} disablePadding>
+                        <ListItemButton>
+                        <ListItemIcon>
+                            <MenuIcon />
+                        </ListItemIcon>
+                            <a href={item.link} style={{ textDecoration: 'none', color: '#212B36' }}>{item.page}</a>
+                        </ListItemButton>
+                    </ListItem>
+                    ))}
+                </List>
+            </Box>
+        );
+
+
     return (
         <>
-           <AppBar position="fixed">
-            <Container maxWidth="xl">
-                <Box sx={{display: 'flex', justifyContent:'space-between', alignItems: 'center', height: '40px'}}>
-                    <Box>
-                        <Typography>Logo</Typography>
+            <AppBar position="sticky" sx={{mt: mt, backgroundColor: 'transparent', }}>
+                <Container maxWidth="xl">
+                    <Box sx={{display: 'flex', justifyContent:'space-between', alignItems: 'center', height: '100px',}}>
+                        <Box>
+                            <Typography>Logo</Typography>
+                        </Box>
+                        <Box sx={{display: { xs: 'none', md:'flex'}, gap:'40px', }}>
+                            {navPages.map((pages, index)=>(
+                                <Link style={{textDecoration: 'none', color: 'white',}} to={pages.link} key={index}>
+                                    <Typography sx={{fontSize: '15px', fontWeight: '600'}}>
+                                        {pages.page}
+                                    </Typography>
+                                </Link>
+                            ))}
+                        </Box>
+                        <Box sx={{display: { xs: 'flex', md:'none'}, gap:'40px', }}>
+                            <IconButton onClick={handleOpenNavMenu}>
+                                <MenuIcon sx={{color: 'white'}}/>
+                            </IconButton>   
+                        </Box>
                     </Box>
-                    <Box sx={{display: { xs: 'none', md:'flex'}, gap:'40px', }}>
-                        {navPages.map((pages, index)=>(
-                            <Link to={pages.link} key={index}>
-                                <Typography>{pages.page}</Typography>
-                            </Link>
-                        ))}
-                    </Box>
-                    <Box sx={{display: { xs: 'flex', md:'none'}, gap:'40px', }}>
-                        {/* {navPages.map((pages, index)=>(
-                            <Link to={pages.link} key={index}>
-                                <Typography>{pages.page}</Typography>
-                            </Link      >
-                        ))} */}
-                        <IconButton>
-
-                        </IconButton>
-                    </Box>
-                </Box>
-            </Container>
+                </Container>
             </AppBar>
+            <SwipeableDrawer
+                anchor={'right'}
+                open={anchorElNav}
+                onClose={handleCloseNavMenu}
+                onOpen={handleOpenNavMenu}
+            >
+                {list()}
+            </SwipeableDrawer>
         </> 
     )
+
+    
+}
+
+Header.propTypes = {
+    mt: PropTypes.number
 }
