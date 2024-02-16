@@ -16,11 +16,15 @@ import {
     
 } from '@mui/material';
 
-
+import { Link } from 'react-router-dom';
 
 // ICONS
 import { 
     Adb as AdbIcon,
+    LinkedIn as LinkedinIcon,
+    Facebook as FacebookIcon,
+    Instagram as InstagramIcon,
+    GitHub as GitHubIcon
 } from '@mui/icons-material/';
 
 // CONTEXT
@@ -31,6 +35,13 @@ import { useContext } from 'react';
 import RightEllipse from '../../assets/Ellipse1.png'
 import LeftEllipse from '../../assets/Ellipse2.png'
 import AvatarImg from '../../assets/AVATAR.png'
+import vscodeImg from '../../assets/vscodeImg.jpg' // SOFTWARE TOOLS IMG
+import gitImg from '../../assets/gitImg.png'        // SOFTWARE TOOLS IMG
+import viteImg from '../../assets/viteImg.webp' // SOFTWARE TOOLS IMG
+import postmanImg from '../../assets/postmanImg.jpg'    // SOFTWARE TOOLS IMG
+import mysqlImg from '../../assets/mysqlImg.png'    // SOFTWARE TOOLS IMG
+import mongodbImg from '../../assets/mongodbImg.png'    // SOFTWARE TOOLS IMG
+
 
 
 
@@ -39,6 +50,54 @@ export default function Home() {
     const {theme, setTheme} = useContext(Theme);
 
     console.log(theme);
+
+
+
+
+
+    const ToolsUsedTop = [
+        {
+            name: 'Visual Studio Code',
+            src: vscodeImg,
+            alt: 'Visual Studio Code Img',
+            link: 'https://code.visualstudio.com/'
+        },
+        {
+            name: 'Postman',
+            src: postmanImg,
+            alt: 'Postman Img',
+            link: 'https://www.postman.com/'
+        },
+        {
+            name: 'Vite',
+            src: viteImg,
+            alt: 'Vite Img',
+            link: 'https://vitejs.dev/'
+        },
+    ];
+
+    const ToolsUsedBottom = [
+        {
+            name: 'Git',
+            src: gitImg,
+            alt: 'Git Img',
+            link: 'https://git-scm.com/'
+        },
+        {
+            name: 'MongoDB',
+            src: mongodbImg,
+            alt: 'MongoDB Img',
+            link: 'https://www.mongodb.com/'
+        },
+        {
+            name: 'MySQL',
+            src: mysqlImg,
+            alt: 'MySQL Img',
+            link: 'https://www.mysql.com/'
+        },
+    ];
+    
+
 
 
     return (
@@ -205,7 +264,7 @@ export default function Home() {
                                 WebkitTextFillColor: 'transparent',
                                 WebkitBackgroundClip: 'text'}}> About Me
                             </span>
-                        </Typography>
+                    </Typography>
 
                     <Box
                         sx={{
@@ -334,10 +393,11 @@ export default function Home() {
                                 fontWeight: '400',
                                 lineHeight: '67px',
                                 textAlign: 'left',
-                                color: '#FFF'
+                                color: '#FFF',
+                                letterSpacing: {md: '0.05em', xs:'0.1em' },
                             }}          
                         >
-                            Skills
+                            SKILLS 
                         </Typography>
                         <Box
                             sx={{
@@ -355,33 +415,231 @@ export default function Home() {
 
 
 
-
+                {/* --------------------- TOOLS ABOUT BOARD ------------------------------------ */}             
                 <Box
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        backgroundColor: 'blue',
                         height: '1000px',
+                        gap: '50px'
                     }}
                 >
-                    NEW CONTENT SOON HERE
+                    <Typography
+                            sx={{
+                                fontFamily: 'Stretch Pro',
+                                fontSize: {md: '66px', xs: '30px'},
+                                fontWeight: '400',
+                                lineHeight: '67px',
+                                textAlign: 'center',
+                                color: '#FFF',
+                                
+                            }}          
+                        >
+                            SOFTWARE / TOOLS <br></br> USED
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '30px'
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                gap: '20px'
+                            }}
+                        >
+                        {ToolsUsedTop.map((tools, index)=> (
+                            <Tooltip 
+                                key={index}
+                                title={tools.name}
+                            >
+                                <Link to={tools.link} target="_blank" rel="noopener noreferrer">
+                                    <Box
+                                        sx={{
+                                            width: '90.94px',
+                                            height: '88.67px',
+                                            border: 'solid white 1px',
+                                            borderRadius: '20px',
+                                            background: `url(${tools.src})`,
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center',
+                                            backgroundRepeat: 'no-repeat'
+                                        }}
+                                    >
+                                    </Box>
+                                </Link>
+                            </Tooltip>
+                        ))}
+                        </Box>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                gap: '20px'
+                            }}
+                        >
+                            {ToolsUsedBottom.map((tools, index)=> (
+                                <Tooltip 
+                                    key={index}
+                                    title={tools.name}
+                                >
+                                    <Link to={tools.link} target="_blank" rel="noopener noreferrer">
+                                        <Box
+                                            sx={{
+                                                width: '90.94px',
+                                                height: '88.67px',
+                                                border: 'solid white 1px',
+                                                borderRadius: '20px',
+                                                background: `url(${tools.src})`,
+                                                backgroundSize: 'cover',
+                                                backgroundRepeat: 'no-repeat',
+                                                backgroundPosition: 'center',
+                                                backgroundColor: 'white',
+                                            }}
+                                        >
+                                        </Box>
+                                    </Link>
+                                </Tooltip>
+                            ))}
+                        </Box>
+                    </Box>
                 </Box>
 
-                {/* <Box
+
+
+
+
+
+                {/* --------------------- PROJECTS BOARD ------------------------------------ */}                             
+                <Box
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        backgroundColor: 'blue',
+                        // backgroundColor: 'blue',
                         height: '1000px',
                     }}
                 >
+                    <Typography
+                            sx={{
+                                fontWeight: '400',
+                                fontSize: {md:' 130px', xs: '50px'},
+                                textAlign: 'center',
+                                fontFamily: 'Poppins',
+                                color: '#FFF',
+                            }}
+                        >
+                            <span style={{
+                                background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
+                                fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                WebkitTextFillColor: 'transparent',
+                                WebkitBackgroundClip: 'text'}}> Projects
+                            </span>
+                    </Typography>
                     
-                </Box> */}
-                
+                </Box>
+
+
+
+
+                {/* --------------------- FOOTER BOARD ------------------------------------ */}   
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
+                        height: '1000px',
+                        widht: '100%'
+                    }}
+                >
+                    <Typography
+                            sx={{
+                                fontWeight: '400',
+                                fontSize: {md:' 64px', xs: '30px'},
+                                textAlign: 'center',
+                                fontFamily: 'Poppins',
+                                color: '#FFF',
+                            }}
+                        >
+                            <span style={{
+                                background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
+                                fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                WebkitTextFillColor: 'transparent',
+                                WebkitBackgroundClip: 'text'}}
+                            > 
+                                LET’S CREATE <br></br>
+                                TOGEETHER
+                            </span>
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '242px',
+                            width: {md:'892px', xs: '300px'},
+                            gap: '32px',
+                            color: 'white'
+                        }}  
+                    >
+                        <Typography
+                            sx={{
+                                fontFamily: 'Poppins',
+                                fontSize: {md: '20px', xs: '14px'},
+                                fontWeight: '400',
+                                lineHeight: '30px',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            I would like to express my heartfelt gratitude for taking the time to review my portfolio. <br></br><br></br>
+
+                            If you have any further questions, collaborations, or opportunities you&apos;d like to discuss,
+                            I would be delighted to connect with you. Please feel free to reach out to me through the following platforms:<br></br><br></br>
+                            <Link style={{color: 'white', fontSize: '60px'}} >
+                                <LinkedinIcon fontSize='inherit' />
+                            </Link>
+                            <Link style={{color: 'white', fontSize: '60px'}} >
+                                <FacebookIcon fontSize='inherit' />
+                            </Link>
+                            <Link style={{color: 'white', fontSize: '60px'}} >
+                                <InstagramIcon fontSize='inherit' />
+                            </Link>
+                        </Typography>
+                        <Typography
+                            sx={{
+                                fontFamily: 'Poppins',
+                                fontSize: {md: '20px', xs: '14px'},
+                                fontWeight: '400',
+                                lineHeight: '30px',
+                            }}
+                        >
+                            Once again, I extend my deepest appreciation for your time and consideration.
+                            I look forward to the possibility of collaborating with you in the future. Thank you!
+                        </Typography>
+                    </Box>
+                    
+                </Box>
+
+
+
+
+
+
+
             </Container>
         </>
     )

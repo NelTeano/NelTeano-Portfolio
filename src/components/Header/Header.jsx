@@ -23,6 +23,7 @@ import { Link } from 'react-router-dom';
 import {
     Menu as MenuIcon,
     Face6TwoTone as Face6TwoToneIcon,
+    GitHub as GitHubIcon
 } from '@mui/icons-material'; 
 
 
@@ -100,8 +101,17 @@ export default function Header({mt}) {
                                     fontWeight: '700',
                                     fontSize: '25px',
                                     fontFamily: 'Poppins',
+                                    display: 'flex', 
+                                    alignItems: 'center', 
+                                    color: 'white',
+                                    gap: '10px'
                                 }}  
                             >
+                                <span>
+                                    <Link to={'https://github.com/NelTeano'} target="_blank" rel="noopener noreferrer" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white',}} >
+                                        <GitHubIcon fontSize='inherit' sx={{fontSize: '40px', backgroundColor: 'black', color: 'white', borderRadius: '20px', border: 'solid white 1px '}}/>
+                                    </Link>
+                                </span>
                                 NelTeano
                             </Typography>
                         </Box>
