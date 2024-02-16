@@ -1,30 +1,21 @@
 // COMPONENTS
 import Navbar from '../../components/Header/Header'
+import ProjectCard from '../../components/ProjectCard/ProjectCard';
 
-import { 
-    AppBar, 
-    Toolbar, 
+import {  
     Container, 
     Typography,
     Box,
-    Menu,
-    MenuItem,
-    Button,
-    IconButton,
-    Avatar,
     Tooltip,
-    
 } from '@mui/material';
 
 import { Link } from 'react-router-dom';
 
 // ICONS
 import { 
-    Adb as AdbIcon,
     LinkedIn as LinkedinIcon,
     Facebook as FacebookIcon,
     Instagram as InstagramIcon,
-    GitHub as GitHubIcon
 } from '@mui/icons-material/';
 
 // CONTEXT
@@ -47,7 +38,7 @@ import mongodbImg from '../../assets/mongodbImg.png'    // SOFTWARE TOOLS IMG
 
 export default function Home() {
 
-    const {theme, setTheme} = useContext(Theme);
+    const { theme } = useContext(Theme);
 
     console.log(theme);
 
@@ -530,8 +521,8 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        // backgroundColor: 'blue',
-                        height: '1000px',
+                        height: '576px',
+                        width: '100%'
                     }}
                 >
                     <Typography
@@ -550,8 +541,42 @@ export default function Home() {
                                 WebkitBackgroundClip: 'text'}}> Projects
                             </span>
                     </Typography>
-                    
                 </Box>
+                
+
+                {/* --------------------- PROJECTS CARDS BOARD ------------------------------------ */}
+                <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: '35px'
+                        }}
+                    >
+                        <ProjectCard /><div></div>
+                        <ProjectCard /><div></div>
+                        <ProjectCard />
+                    </Box>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
