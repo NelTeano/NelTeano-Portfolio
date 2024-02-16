@@ -130,7 +130,7 @@ export default function Home() {
                     {/* FLOATING ELIPSES ( CAUSING OVERLAPPED IN MOBILE VIEW) */}
 
                     
-                    <img  
+                    {/* <img  
                         style={{
                             width: '678px',
                             height: '678px',
@@ -152,7 +152,7 @@ export default function Home() {
                         }}    
                         src={LeftEllipse}  
                     >
-                    </img>
+                    </img> */}
 
 
 
@@ -331,7 +331,8 @@ export default function Home() {
                             alignItems: 'center',
                             justifyContent: 'center',
                             flexDirection: 'row',
-                            gap: '40px'
+                            gap: '40px',
+                            flexWrap: 'wrap'
                         }}
                     >
                         <Box>
@@ -357,10 +358,10 @@ export default function Home() {
                     <Typography
                         sx={{
                             fontFamily: 'Poppins',
-                            fontSize: {md: '20px', xs: '10px'},
+                            fontSize: {md: '20px', xs: '14px'},
                             fontWeight: '400',
                             lineHeight: '30px',
-                            textAlign: 'left',
+                            textAlign: {md: 'left', xs: 'center'},
                             color: '#FFF'
                         }}          
                     >
@@ -609,13 +610,13 @@ export default function Home() {
 
                             If you have any further questions, collaborations, or opportunities you&apos;d like to discuss,
                             I would be delighted to connect with you. Please feel free to reach out to me through the following platforms:<br></br><br></br>
-                            <Link style={{color: 'white', fontSize: '60px'}} >
+                            <Link to={'https://www.linkedin.com/in/teanojonel/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
                                 <LinkedinIcon fontSize='inherit' />
                             </Link>
-                            <Link style={{color: 'white', fontSize: '60px'}} >
+                            <Link to={'https://www.facebook.com/96jonel96/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
                                 <FacebookIcon fontSize='inherit' />
                             </Link>
-                            <Link style={{color: 'white', fontSize: '60px'}} >
+                            <Link to={'https://www.instagram.com/shu1dddd/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
                                 <InstagramIcon fontSize='inherit' />
                             </Link>
                         </Typography>
