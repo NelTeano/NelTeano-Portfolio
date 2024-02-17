@@ -89,6 +89,45 @@ export default function Home() {
     ];
     
 
+    // PROJECT SLIDES MANAGER
+    const projectDetails = [
+        {
+            title: 'WATER REFILLING SYSTEM',
+            about: 'A mobile app design for Bean Block’s E-commerce app ',
+            link: '#',
+            img: 
+            [   
+                {   
+                    label: 'Test1',
+                    imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+                },
+                {
+                    label: 'Test2',
+                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+            ],
+        },
+        {
+            title: 'WATER REFILLING SYSTEM',
+            about: 'A mobile app design for Bean Block’s E-commerce app ',
+            link: '#',
+            img: 
+            [   
+                {   
+                    label: 'Test1',
+                    imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+                {
+                    label: 'Test2',
+                    imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+                {
+                    label: 'Test3',
+                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+            ],
+        },
+    ]
 
 
     return (
@@ -337,7 +376,7 @@ export default function Home() {
                                     color: '#FFF'
                                 }}
                             >
-                                JONEL <br></br>TEANO
+                                JONEL <br></br>TEAÑO
                             </Typography>
                         </Box>
                         <Box>
@@ -552,31 +591,18 @@ export default function Home() {
                             alignItems: 'center',
                             flexDirection: 'column',
                             width: '100%',
-                            gap: '35px'
+                            gap: {md: '35px', xs: '50px'}
                         }}
                     >
-                        <ProjectCard /><div></div>
-                        <ProjectCard /><div></div>
-                        <ProjectCard />
+                        {projectDetails.map((details, index)=> (
+                                    <ProjectCard 
+                                        key={index}
+                                        title={details.title} 
+                                        about={details.about}
+                                        img={details.img}
+                                    />
+                        ))}
                     </Box>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

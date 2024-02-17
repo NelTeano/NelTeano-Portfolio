@@ -112,7 +112,9 @@ export default function Header({mt}) {
                                         <GitHubIcon fontSize='inherit' sx={{fontSize: '40px', backgroundColor: 'black', color: 'white', borderRadius: '20px', border: 'solid white 1px '}}/>
                                     </Link>
                                 </span>
-                                NelTeano
+                                <Link to={'https://github.com/NelTeano'} style={{color: 'white', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">
+                                    NelTeano
+                                </Link>
                             </Typography>
                         </Box>
                         <Box sx={{display: { xs: 'none', md:'flex'}, gap:'40px', }}>
