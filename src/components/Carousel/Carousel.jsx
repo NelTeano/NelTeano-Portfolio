@@ -18,7 +18,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export default function Carousel({img}) {
 
     const slideSource = img;
-    console.log(slideSource)
+
+    
     return (
         
             <CCarousel 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, cloneElement  } from 'react';
 import PropTypes  from 'prop-types'
 
 // COMPONENTS
@@ -23,6 +23,9 @@ import { Link } from 'react-router-dom';
 import {
     Menu as MenuIcon,
     Face6TwoTone as Face6TwoToneIcon,
+    Home as HomeIcon,
+    Web as WebIcon,
+    ContactMail as ContactIcon,
     GitHub as GitHubIcon
 } from '@mui/icons-material'; 
 
@@ -33,16 +36,23 @@ const navPages = [
     {
         page: 'HOME',
         link: '/',
+        icon: <HomeIcon />,
     },
     {
         page: 'WORK',
-        link: '/',
+        link: '/work',
+        icon: <WebIcon />,
     },
     {
         page: 'CONTACT',
-        link: '/',
+        link: '/contact',
+        icon: <ContactIcon />,
     },
-]
+];
+
+const renderIcon = (icon) => {
+    return cloneElement(icon, { fontSize: '24px',  });
+};
 
 export default function Header({mt}) {
 
@@ -58,30 +68,20 @@ export default function Header({mt}) {
 
     const list = () => (
             <Box
-                sx={{ width: 250 }}
+                sx={{ width: 250, fontFamily: 'Poppins', fontWeight: '400', mt: 5 }}
                 role="presentation"
                 onClick={handleCloseNavMenu}
                 onKeyDown={handleCloseNavMenu}
             >
-                <List>
-                    <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                        <Face6TwoToneIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Profile" />
-                    </ListItemButton>
-                    </ListItem>
-                </List>
-                <Divider />
+                
                 <List>
                     {navPages.map((item, index) => (
                     <ListItem key={index} disablePadding>
                         <ListItemButton>
                         <ListItemIcon>
-                            <MenuIcon />
+                            {renderIcon(item.icon)}
                         </ListItemIcon>
-                            <a href={item.link} style={{ textDecoration: 'none', color: '#212B36' }}>{item.page}</a>
+                            <Link to={item.link} style={{ textDecoration: 'none', color: '#212B36' }}>{item.page}</Link>
                         </ListItemButton>
                     </ListItem>
                     ))}
@@ -139,6 +139,7 @@ export default function Header({mt}) {
                 open={anchorElNav}
                 onClose={handleCloseNavMenu}
                 onOpen={handleOpenNavMenu}
+                
             >
                 {list()}
             </SwipeableDrawer>

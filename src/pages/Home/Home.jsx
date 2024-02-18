@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { InView } from 'react-intersection-observer';
+
 // COMPONENTS
 import Navbar from '../../components/Header/Header'
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
@@ -7,6 +10,10 @@ import {
     Typography,
     Box,
     Tooltip,
+    Zoom,
+    Fade,
+    Grow,
+    Slide
 } from '@mui/material';
 
 import { Link } from 'react-router-dom';
@@ -127,8 +134,65 @@ export default function Home() {
                 },
             ],
         },
+        {
+            title: 'WATER REFILLING SYSTEM',
+            about: 'A mobile app design for Bean Block’s E-commerce app ',
+            link: '#',
+            img: 
+            [   
+                {   
+                    label: 'Test1',
+                    imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+                },
+                {
+                    label: 'Test2',
+                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+            ],
+        },
+        {
+            title: 'WATER REFILLING SYSTEM',
+            about: 'A mobile app design for Bean Block’s E-commerce app ',
+            link: '#',
+            img: 
+            [   
+                {   
+                    label: 'Test1',
+                    imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+                {
+                    label: 'Test2',
+                    imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+                {
+                    label: 'Test3',
+                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+                },
+            ],
+        },
     ]
 
+
+    const EnableAnimation = (enable) => {
+        setActive(enable);
+    }
+    
+    // ANIMATION ACTIVATION
+    const [active, setActive] = useState(false); // WELCOME BOARD
+    const [active2, setActive2] = useState(false); // ABOUT BOARD
+    const [active3, setActive3] = useState(false); // PROJECT BOARD
+    const [active4, setActive4] = useState(false); // FOOTER BOARD
+
+
+    // <InView as="div" 
+    //                     onChange={(inView) => { 
+    //                         EnableAnimation(inView);
+    //                     }}
+    //                 >
+    //                     <Zoom in={active}  timeout={3000}>
+
+    //                     </Zoom>
+    // </Inview>               
 
     return (
         <>
@@ -185,37 +249,53 @@ export default function Home() {
                     </img> */}
 
 
-
-                    <Typography
-                        sx={{
-                            fontWeight: '700',
-                            fontSize: {md:' 32px', xs: '20px'},
-                            textAlign: 'center',
-                            lineHeight: '48px',
-                            fontFamily: 'Poppins',
-                            color: '#FFF'
+                    <InView as="div" 
+                        onChange={(inView) => { 
+                            EnableAnimation(inView);
                         }}
                     >
-                    Hello there &#128075;
-                    </Typography>
-                    <Typography
-                            sx={{
-                                fontWeight: '400',
-                                fontSize: {md:' 130px', xs: '50px'},
-                                textAlign: 'center',
-                                fontFamily: 'Poppins',
-                                color: '#FFF'
-                            }}
-                        >
-                            I’m 
-                            <span style={{
-                                background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
-                                fontFamily: 'Stretch Pro, Arial, sans-serif',
-                                WebkitTextFillColor: 'transparent',
-                                WebkitBackgroundClip: 'text'}}> Jonel
-                            </span>
-                        </Typography>
+                        <Fade in={active}  timeout={1000}>
+                            <Typography
+                                sx={{
+                                    fontWeight: '700',
+                                    fontSize: {md:' 32px', xs: '20px'},
+                                    textAlign: 'center',
+                                    lineHeight: '48px',
+                                    fontFamily: 'Poppins',
+                                    color: '#FFF'
+                                }}
+                            >
+                                Hello there &#128075;
+                            </Typography>
+                        </Fade>
+                    </InView>
 
+
+                    <InView as="div" 
+                        onChange={(inView) => { 
+                            EnableAnimation(inView);
+                        }}
+                    >
+                        <Zoom in={active}  timeout={1500}>
+                            <Typography
+                                    sx={{
+                                        fontWeight: '400',
+                                        fontSize: {md:' 130px', xs: '50px'},
+                                        textAlign: 'center',
+                                        fontFamily: 'Poppins',
+                                        color: '#FFF'
+                                    }}
+                                >
+                                    I’m 
+                                    <span style={{
+                                        background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
+                                        fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                        WebkitTextFillColor: 'transparent',
+                                        WebkitBackgroundClip: 'text'}}> Jonel
+                                    </span>
+                                </Typography>
+                            </Zoom>
+                    </InView>
                     <Box
                         sx={{
                             display: 'flex',
@@ -229,45 +309,73 @@ export default function Home() {
 
                         }}
                     >
-                        <Typography 
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md:' 32px', xs: '13px'},
-                                fontWeight: '400',
-                                letterSpacing: '0em',
-                                textAlign: 'center',
-                            }}
+                        <InView as="div" 
+                        onChange={(inView) => { 
+                            EnableAnimation(inView);
+                        }}
                         >
-                            FullStack Developer
-                        </Typography>
+                            <Grow in={active}  timeout={2000}>
+                                <Typography 
+                                    sx={{
+                                        fontFamily: 'Poppins',
+                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontWeight: '400',
+                                        letterSpacing: '0em',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    FullStack Developer
+                                </Typography>
+                            </Grow>
+                        </InView>
+                        
                         <Typography sx={{fontFamily: 'Poppins', fontSize: '32px', fontWeight: '400',}}>|</Typography> 
-                        <Typography 
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md:' 32px', xs: '13px'},
-                                fontWeight: '400',
-                                letterSpacing: '0em',
-                                textAlign: 'center',
-                            }}>
-                                MERN Developer
-                        </Typography>
+
+                        <InView as="div" 
+                        onChange={(inView) => { 
+                            EnableAnimation(inView);
+                        }}
+                        >
+                            <Grow in={active}  timeout={2500}>
+                                <Typography 
+                                sx={{
+                                    fontFamily: 'Poppins',
+                                    fontSize: {md:' 32px', xs: '13px'},
+                                    fontWeight: '400',
+                                    letterSpacing: '0em',
+                                    textAlign: 'center',
+                                }}>
+                                    MERN Developer
+                                </Typography>
+                            </Grow>
+                        </InView>
+
                         <Typography sx={{fontFamily: 'Poppins', fontSize: '32px', fontWeight: '400',}}>|</Typography>
-                        <Typography 
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md:' 32px', xs: '13px'},
-                                fontWeight: '400',
-                                letterSpacing: '0em',
-                                textAlign: 'center',
-                            }}>
-                                React Developer
-                        </Typography>
+
+                        <InView as="div" 
+                        onChange={(inView) => { 
+                            EnableAnimation(inView);
+                        }}
+                        >
+                            <Grow in={active}  timeout={3000}>
+                                <Typography 
+                                    sx={{
+                                        fontFamily: 'Poppins',
+                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontWeight: '400',
+                                        letterSpacing: '0em',
+                                        textAlign: 'center',
+                                    }}>
+                                        React Developer
+                                </Typography>
+                            </Grow>
+                        </InView>
                     </Box>
                 </Box>
 
+               
 
-
-
+                                            
 
                 {/* --------------------- ABOUT BOARD ------------------------------------ */}            
                 <Box
@@ -279,22 +387,30 @@ export default function Home() {
                         height: '576px'
                     }}
                 >
-                    <Typography
-                            sx={{
-                                fontWeight: '400',
-                                fontSize: {md:' 130px', xs: '50px'},
-                                textAlign: 'center',
-                                fontFamily: 'Poppins',
-                                color: '#FFF',
-                            }}
-                        >
-                            <span style={{
-                                background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
-                                fontFamily: 'Stretch Pro, Arial, sans-serif',
-                                WebkitTextFillColor: 'transparent',
-                                WebkitBackgroundClip: 'text'}}> About Me
-                            </span>
-                    </Typography>
+                    <InView as="div" 
+                        onChange={(inView) => { 
+                            setActive2(inView);
+                        }}
+                    >
+                        <Zoom in={active2}  timeout={1500}>
+                            <Typography
+                                sx={{
+                                    fontWeight: '400',
+                                    fontSize: {md:' 130px', xs: '50px'},
+                                    textAlign: 'center',
+                                    fontFamily: 'Poppins',
+                                    color: '#FFF',
+                                }}
+                            >
+                                <span style={{
+                                    background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
+                                    fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                    WebkitTextFillColor: 'transparent',
+                                    WebkitBackgroundClip: 'text'}}> About Me
+                                </span>
+                            </Typography>
+                        </Zoom>
+                    </InView>
 
                     <Box
                         sx={{
@@ -309,39 +425,67 @@ export default function Home() {
 
                         }}
                     >
-                        <Typography 
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md:' 32px', xs: '13px'},
-                                fontWeight: '400',
-                                letterSpacing: '0em',
-                                textAlign: 'center',
+                        <InView as="div" 
+                            onChange={(inView) => { 
+                                setActive2(inView);
                             }}
                         >
-                            Education
-                        </Typography>
+                            <Grow in={active2}  timeout={2000}>
+                                <Typography 
+                                    sx={{
+                                        fontFamily: 'Poppins',
+                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontWeight: '400',
+                                        letterSpacing: '0em',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Education
+                                </Typography>
+                            </Grow>
+                        </InView>
+                        
                         <Typography sx={{fontFamily: 'Poppins', fontSize: '32px', fontWeight: '400',}}>|</Typography> 
-                        <Typography 
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md:' 32px', xs: '13px'},
-                                fontWeight: '400',
-                                letterSpacing: '0em',
-                                textAlign: 'center',
-                            }}>
-                                Skills
-                        </Typography>
+                       
+                        <InView as="div" 
+                            onChange={(inView) => { 
+                                setActive2(inView);
+                            }}
+                        >
+                            <Grow in={active2}  timeout={2500}>
+                                <Typography 
+                                    sx={{
+                                        fontFamily: 'Poppins',
+                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontWeight: '400',
+                                        letterSpacing: '0em',
+                                        textAlign: 'center',
+                                    }}>
+                                        Skills
+                                </Typography>
+                            </Grow>
+                        </InView>    
+
                         <Typography sx={{fontFamily: 'Poppins', fontSize: '32px', fontWeight: '400',}}>|</Typography>
-                        <Typography 
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md:' 32px', xs: '13px'},
-                                fontWeight: '400',
-                                letterSpacing: '0em',
-                                textAlign: 'center',
-                            }}>
-                                Certificates & Licenses
-                        </Typography>
+                        
+                        <InView as="div" 
+                            onChange={(inView) => { 
+                                setActive2(inView);
+                            }}
+                        >
+                            <Grow in={active2}  timeout={3000}>
+                                <Typography 
+                                sx={{
+                                    fontFamily: 'Poppins',
+                                    fontSize: {md:' 32px', xs: '13px'},
+                                    fontWeight: '400',
+                                    letterSpacing: '0em',
+                                    textAlign: 'center',
+                                }}>
+                                    Certificates & Licenses
+                                </Typography>
+                            </Grow>
+                        </InView> 
                     </Box>
                 </Box>
 
@@ -371,7 +515,7 @@ export default function Home() {
                                     fontFamily: 'Stretch Pro',
                                     fontSize: {md: '66px', xs: '30px'},
                                     fontWeight: '400',
-                                    lineHeight: '67px',
+                                    lineHeight: {md:'80px', xs: '40px'},
                                     textAlign: 'left',
                                     color: '#FFF'
                                 }}
@@ -564,23 +708,32 @@ export default function Home() {
                         width: '100%'
                     }}
                 >
-                    <Typography
-                            sx={{
-                                fontWeight: '400',
-                                fontSize: {md:' 130px', xs: '50px'},
-                                textAlign: 'center',
-                                fontFamily: 'Poppins',
-                                color: '#FFF',
-                            }}
-                        >
-                            <span style={{
-                                background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
-                                fontFamily: 'Stretch Pro, Arial, sans-serif',
-                                WebkitTextFillColor: 'transparent',
-                                WebkitBackgroundClip: 'text'}}> Projects
-                            </span>
-                    </Typography>
+                    <InView as="div" 
+                        onChange={(inView) => { 
+                            setActive3(inView)
+                        }}
+                    >
+                        <Zoom in={active3}  timeout={1000}>
+                            <Typography
+                                sx={{
+                                    fontWeight: '400',
+                                    fontSize: {md:' 130px', xs: '50px'},
+                                    textAlign: 'center',
+                                    fontFamily: 'Poppins',
+                                    color: '#FFF',
+                                }}
+                            >
+                                <span style={{
+                                    background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
+                                    fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                    WebkitTextFillColor: 'transparent',
+                                    WebkitBackgroundClip: 'text'}}> Projects
+                                </span>
+                            </Typography>
+                        </Zoom>
+                    </InView>  
                 </Box>
+           
                 
 
                 {/* --------------------- PROJECTS CARDS BOARD ------------------------------------ */}
@@ -594,14 +747,16 @@ export default function Home() {
                             gap: {md: '35px', xs: '50px'}
                         }}
                     >
-                        {projectDetails.map((details, index)=> (
-                                    <ProjectCard 
-                                        key={index}
-                                        title={details.title} 
-                                        about={details.about}
-                                        img={details.img}
-                                    />
-                        ))}
+                        
+                            {projectDetails.map((details, index)=> (
+                                        <ProjectCard 
+                                            key={index}
+                                            title={details.title} 
+                                            about={details.about}
+                                            img={details.img}
+                                        />
+                            ))}
+                        
                     </Box>
 
 
@@ -618,25 +773,35 @@ export default function Home() {
                         widht: '100%'
                     }}
                 >
-                    <Typography
-                            sx={{
-                                fontWeight: '400',
-                                fontSize: {md:' 64px', xs: '30px'},
-                                textAlign: 'center',
-                                fontFamily: 'Poppins',
-                                color: '#FFF',
-                            }}
-                        >
-                            <span style={{
-                                background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
-                                fontFamily: 'Stretch Pro, Arial, sans-serif',
-                                WebkitTextFillColor: 'transparent',
-                                WebkitBackgroundClip: 'text'}}
-                            > 
-                                LET’S CREATE <br></br>
-                                TOGEETHER
-                            </span>
-                    </Typography>
+                    <InView as="div" 
+                        onChange={(inView) => { 
+                            setActive4(inView)
+                        }}
+                    >
+                        <Slide  in={active4}  timeout={1300}>
+                            <Typography
+                                sx={{
+                                    fontWeight: '400',
+                                    fontSize: {md:' 64px', xs: '30px'},
+                                    textAlign: 'center',
+                                    fontFamily: 'Poppins',
+                                    color: '#FFF',
+                                }}
+                            >
+                                <span style={{
+                                    background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
+                                    fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                    WebkitTextFillColor: 'transparent',
+                                    WebkitBackgroundClip: 'text'}}
+                                > 
+                                    LET’S CREATE <br></br>
+                                    TOGEETHER
+                                </span>
+                            </Typography>
+                        </Slide>
+                    </InView>  
+
+                    
 
                     <Box
                         sx={{
