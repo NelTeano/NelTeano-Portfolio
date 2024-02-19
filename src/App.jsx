@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom'
 // PAGES
 import HomepagePage from './pages/Home/Home'
 import ProjectsPage from './pages/Projects/Projects'
-import BackgroundPage from './pages/Background/Background'
 import ContactsPage from './pages/Contacts/Contacts'
 
 function App() {
@@ -20,11 +19,7 @@ function App() {
       element: ProjectsPage
     },
     {
-      pathname: "/Background",
-      element: BackgroundPage
-    },
-    {
-      pathname: "/Contacts",
+      pathname: "/Contact",
       element: ContactsPage
     },
   ]

@@ -786,6 +786,7 @@ export default function Home() {
                                     textAlign: 'center',
                                     fontFamily: 'Poppins',
                                     color: '#FFF',
+                                    
                                 }}
                             >
                                 <span style={{

@@ -28,7 +28,7 @@ export default function Carousel({img}) {
                 className="carousel"
             >
                 {slideSource.map((slide, index) => (
-                    <CCarouselItem className='carousel-item' key={index}>
+                    <CCarouselItem interval={1000} className='carousel-item' key={index}>
                         <CImage fluid style={{height: '100%'}} src={slide.imgPath} alt={slide.label} />
                     </CCarouselItem>
                 ))}

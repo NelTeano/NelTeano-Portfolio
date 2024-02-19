@@ -120,7 +120,17 @@ export default function Header({mt}) {
                         <Box sx={{display: { xs: 'none', md:'flex'}, gap:'40px', }}>
                             {navPages.map((pages, index)=>(
                                 <Link style={{textDecoration: 'none', color: 'white',}} to={pages.link} key={index}>
-                                    <Typography sx={{fontSize: '15px', fontWeight: '600'}}>
+                                    <Typography 
+                                        sx={{
+                                            fontSize: '15px', 
+                                            fontWeight: '600',
+                                            "&:hover": {
+                                                fontSize: '20px', 
+                                                transition: '0.5s',
+
+                                              },
+                                        }}
+                                    >
                                         {pages.page}
                                     </Typography>
                                 </Link>
