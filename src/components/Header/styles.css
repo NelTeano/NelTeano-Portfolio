@@ -1,0 +1,28 @@
+.nav-option {
+    position: relative;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.nav-option:hover {
+    color: #FFF;
+}
+
+
+.nav-option::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+
+.nav-option:hover::before {
+    transform: scaleX(1);
+}

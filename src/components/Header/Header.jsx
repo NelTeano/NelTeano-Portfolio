@@ -1,6 +1,8 @@
 import { useState, cloneElement  } from 'react';
 import PropTypes  from 'prop-types'
 
+import './styles.css'
+
 // COMPONENTS
 import { 
     AppBar,  
@@ -22,13 +24,17 @@ import { Link } from 'react-router-dom';
 // ICONS
 import {
     Menu as MenuIcon,
-    Face6TwoTone as Face6TwoToneIcon,
     Home as HomeIcon,
     Web as WebIcon,
     ContactMail as ContactIcon,
     GitHub as GitHubIcon
 } from '@mui/icons-material'; 
 
+
+const ScrolltoAbout = () => {
+    console.log("working");
+    window.scrollTo(0, 800);
+}
 
 
 
@@ -37,6 +43,11 @@ const navPages = [
         page: 'HOME',
         link: '/',
         icon: <HomeIcon />,
+    },
+    {
+        page: 'ABOUT',
+        icon: <ContactIcon />,
+        onClick: ScrolltoAbout
     },
     {
         page: 'WORK',
@@ -55,6 +66,7 @@ const renderIcon = (icon) => {
 };
 
 export default function Header({mt}) {
+    
 
     const [anchorElNav, setAnchorElNav] = useState(false);
 
@@ -119,16 +131,15 @@ export default function Header({mt}) {
                         </Box>
                         <Box sx={{display: { xs: 'none', md:'flex'}, gap:'40px', }}>
                             {navPages.map((pages, index)=>(
-                                <Link style={{textDecoration: 'none', color: 'white',}} to={pages.link} key={index}>
+                                <Link onClick={pages.onClick} 
+                                    className='nav-option'
+                                    to={pages.link} 
+                                    key={index}
+                                >
                                     <Typography 
                                         sx={{
                                             fontSize: '15px', 
                                             fontWeight: '600',
-                                            "&:hover": {
-                                                fontSize: '20px', 
-                                                transition: '0.5s',
-
-                                              },
                                         }}
                                     >
                                         {pages.page}

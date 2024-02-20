@@ -4,6 +4,9 @@ import { InView } from 'react-intersection-observer';
 // COMPONENTS
 import Navbar from '../../components/Header/Header'
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
+import Timeline from "../../components/Timeline/TimelineCard"
+
+
 
 import {  
     Container, 
@@ -13,8 +16,10 @@ import {
     Zoom,
     Fade,
     Grow,
-    Slide
+    Slide,
 } from '@mui/material';
+
+
 
 import { Link } from 'react-router-dom';
 
@@ -39,7 +44,6 @@ import viteImg from '../../assets/viteImg.webp' // SOFTWARE TOOLS IMG
 import postmanImg from '../../assets/postmanImg.jpg'    // SOFTWARE TOOLS IMG
 import mysqlImg from '../../assets/mysqlImg.png'    // SOFTWARE TOOLS IMG
 import mongodbImg from '../../assets/mongodbImg.png'    // SOFTWARE TOOLS IMG
-
 
 
 
@@ -208,6 +212,7 @@ export default function Home() {
             >
 
             <Navbar mt={4} />
+            
                 
                 {/* --------------------- WELCOME BOARD ------------------------------------ */}
                 <Box
@@ -373,7 +378,7 @@ export default function Home() {
                     </Box>
                 </Box>
 
-               
+
 
                                             
 
@@ -496,7 +501,7 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        height: '700px',
+                        height: '800px',
                     }}
                 >
                     <Box
@@ -549,7 +554,6 @@ export default function Home() {
 
 
 
-
                 {/* --------------------- SKILLS ABOUT BOARD ------------------------------------ */}        
                 <Box
                     sx={{
@@ -588,6 +592,44 @@ export default function Home() {
                         </Box>
                 </Box>
 
+
+
+                {/* --------------------- TIMELINE ABOUT BOARD ------------------------------------ */}   
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
+                        height: '300px',
+                    }}
+                >
+                        <Typography
+                            sx={{
+                                fontFamily: 'Stretch Pro',
+                                fontSize: {md: '66px', xs: '30px'},
+                                fontWeight: '400',
+                                lineHeight: '67px',
+                                textAlign: {md: 'left', xs: 'center'},
+                                color: '#FFF',
+                                letterSpacing: {md: '0.05em', xs:'0.1em' },
+                            }}          
+                        >
+                            EXPERIENCE TIMELINE 
+                        </Typography>
+                </Box>   
+
+                {/* --------------------- TIMELINE HIERARCHY BOARD ------------------------------------ */}       
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: {md: '1700px', xs: 'auto'},
+                    }}
+                >
+                    <Timeline defaultColor="bg-[darkOrange]" />
+                </Box>         
 
 
                 {/* --------------------- TOOLS ABOUT BOARD ------------------------------------ */}             
@@ -694,9 +736,6 @@ export default function Home() {
 
 
 
-
-
-
                 {/* --------------------- PROJECTS BOARD ------------------------------------ */}                             
                 <Box
                     sx={{
@@ -733,7 +772,7 @@ export default function Home() {
                         </Zoom>
                     </InView>  
                 </Box>
-           
+
                 
 
                 {/* --------------------- PROJECTS CARDS BOARD ------------------------------------ */}

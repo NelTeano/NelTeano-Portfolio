@@ -36,7 +36,7 @@ function ProjectCard({title, about, link, img}) {
                     flexDirection: {md: 'row', xs: 'column-reverse'},
                     width: {md: '1197px', xs: '300px'},
                     height: {md: '400px', xs: '400px'},
-                    border: 'solid white 1px',
+                    border: 'none',
                 }}
             >
                 <Box 
