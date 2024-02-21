@@ -410,9 +410,12 @@ export default function Home() {
                             color: '#FFF'
                         }}          
                     >
-                        Hey! With 7 years in digital design, I&apos;m like a wizard turning screens<br></br>
-                        into envy-inducing masterpieces.Let&apos;s craft smooth user experiences<br></br>
-                        and sprinkle some fun into the internet, one quirky UI at a time!<br></br>
+                        Hey! I&apos;m a driven student at Cavite State University, deeply passionate about
+                        crafting <br></br>cutting-edge web applications. My goal? To master 
+                        Full Stack Web Development,<br></br>delivering top-notch 
+                        websites and apps that push boundaries.<br></br>
+                        Let&apos;s innovate together and redefine 
+                        the digital experience, one project at a time!
                     </Typography>
                 </Box>
 
