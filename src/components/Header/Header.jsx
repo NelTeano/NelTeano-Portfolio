@@ -31,11 +31,6 @@ import {
 } from '@mui/icons-material'; 
 
 
-const ScrolltoAbout = () => {
-    console.log("working");
-    window.scrollTo(0, 800);
-}
-
 
 
 const navPages = [
@@ -43,22 +38,25 @@ const navPages = [
         page: 'HOME',
         link: '/',
         icon: <HomeIcon />,
+        onClick: () => {window.scrollTo(0, 0);}
     },
     {
         page: 'ABOUT',
+        link: '/',
         icon: <ContactIcon />,
-        onClick: ScrolltoAbout
+        onClick: () => {window.scrollTo(0, 800);}
     },
     {
-        page: 'WORK',
-        link: '/work',
+        page: 'PROJECTS',
+        link: '/',
         icon: <WebIcon />,
+        onClick: () => {window.scrollTo(0, 5900);}
     },
-    {
-        page: 'CONTACT',
-        link: '/contact',
-        icon: <ContactIcon />,
-    },
+    // {
+    //     page: 'CONTACT',
+    //     link: '/contact',
+    //     icon: <ContactIcon />,
+    // },
 ];
 
 const renderIcon = (icon) => {
@@ -93,7 +91,7 @@ export default function Header({mt}) {
                         <ListItemIcon>
                             {renderIcon(item.icon)}
                         </ListItemIcon>
-                            <Link to={item.link} style={{ textDecoration: 'none', color: '#212B36' }}>{item.page}</Link>
+                            <Link onClick={item.onClick} to={item.link} style={{ textDecoration: 'none', color: '#212B36' }}>{item.page}</Link>
                         </ListItemButton>
                     </ListItem>
                     ))}

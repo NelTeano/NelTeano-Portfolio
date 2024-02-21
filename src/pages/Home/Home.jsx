@@ -38,13 +38,13 @@ import { useContext } from 'react';
 import RightEllipse from '../../assets/Ellipse1.png'
 import LeftEllipse from '../../assets/Ellipse2.png'
 import AvatarImg from '../../assets/AVATAR.png'
-import vscodeImg from '../../assets/vscodeImg.jpg' // SOFTWARE TOOLS IMG
-import gitImg from '../../assets/gitImg.png'        // SOFTWARE TOOLS IMG
-import viteImg from '../../assets/viteImg.webp' // SOFTWARE TOOLS IMG
-import postmanImg from '../../assets/postmanImg.jpg'    // SOFTWARE TOOLS IMG
-import mysqlImg from '../../assets/mysqlImg.png'    // SOFTWARE TOOLS IMG
-import mongodbImg from '../../assets/mongodbImg.png'    // SOFTWARE TOOLS IMG
 
+
+// ELEMENTS
+import { 
+    projectDetails,
+    toolsUsed
+} from "./HomeElements"
 
 
 export default function Home() {
@@ -52,129 +52,6 @@ export default function Home() {
     const { theme } = useContext(Theme);
 
     console.log(theme);
-
-
-
-
-
-    const ToolsUsedTop = [
-        {
-            name: 'Visual Studio Code',
-            src: vscodeImg,
-            alt: 'Visual Studio Code Img',
-            link: 'https://code.visualstudio.com/'
-        },
-        {
-            name: 'Postman',
-            src: postmanImg,
-            alt: 'Postman Img',
-            link: 'https://www.postman.com/'
-        },
-        {
-            name: 'Vite',
-            src: viteImg,
-            alt: 'Vite Img',
-            link: 'https://vitejs.dev/'
-        },
-    ];
-
-    const ToolsUsedBottom = [
-        {
-            name: 'Git',
-            src: gitImg,
-            alt: 'Git Img',
-            link: 'https://git-scm.com/'
-        },
-        {
-            name: 'MongoDB',
-            src: mongodbImg,
-            alt: 'MongoDB Img',
-            link: 'https://www.mongodb.com/'
-        },
-        {
-            name: 'MySQL',
-            src: mysqlImg,
-            alt: 'MySQL Img',
-            link: 'https://www.mysql.com/'
-        },
-    ];
-    
-
-    // PROJECT SLIDES MANAGER
-    const projectDetails = [
-        {
-            title: 'WATER REFILLING SYSTEM',
-            about: 'A mobile app design for Bean Block’s E-commerce app ',
-            link: '#',
-            img: 
-            [   
-                {   
-                    label: 'Test1',
-                    imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
-                },
-                {
-                    label: 'Test2',
-                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-            ],
-        },
-        {
-            title: 'WATER REFILLING SYSTEM',
-            about: 'A mobile app design for Bean Block’s E-commerce app ',
-            link: '#',
-            img: 
-            [   
-                {   
-                    label: 'Test1',
-                    imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-                {
-                    label: 'Test2',
-                    imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-                {
-                    label: 'Test3',
-                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-            ],
-        },
-        {
-            title: 'WATER REFILLING SYSTEM',
-            about: 'A mobile app design for Bean Block’s E-commerce app ',
-            link: '#',
-            img: 
-            [   
-                {   
-                    label: 'Test1',
-                    imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
-                },
-                {
-                    label: 'Test2',
-                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-            ],
-        },
-        {
-            title: 'WATER REFILLING SYSTEM',
-            about: 'A mobile app design for Bean Block’s E-commerce app ',
-            link: '#',
-            img: 
-            [   
-                {   
-                    label: 'Test1',
-                    imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-                {
-                    label: 'Test2',
-                    imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-                {
-                    label: 'Test3',
-                    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-                },
-            ],
-        },
-    ]
 
 
     const EnableAnimation = (enable) => {
@@ -186,17 +63,6 @@ export default function Home() {
     const [active2, setActive2] = useState(false); // ABOUT BOARD
     const [active3, setActive3] = useState(false); // PROJECT BOARD
     const [active4, setActive4] = useState(false); // FOOTER BOARD
-
-
-    // <InView as="div" 
-    //                     onChange={(inView) => { 
-    //                         EnableAnimation(inView);
-    //                     }}
-    //                 >
-    //                     <Zoom in={active}  timeout={3000}>
-
-    //                     </Zoom>
-    // </Inview>               
 
     return (
         <>
@@ -229,7 +95,7 @@ export default function Home() {
                     {/* FLOATING ELIPSES ( CAUSING OVERLAPPED IN MOBILE VIEW) */}
 
                     
-                    {/* <img  
+                    <img  
                         style={{
                             width: '678px',
                             height: '678px',
@@ -251,7 +117,7 @@ export default function Home() {
                         }}    
                         src={LeftEllipse}  
                     >
-                    </img> */}
+                    </img>
 
 
                     <InView as="div" 
@@ -389,7 +255,7 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        height: '576px'
+                        height: {md: '576px', xs: '700px'}
                     }}
                 >
                     <InView as="div" 
@@ -628,7 +494,7 @@ export default function Home() {
                         height: {md: '1700px', xs: 'auto'},
                     }}
                 >
-                    <Timeline defaultColor="bg-[darkOrange]" />
+                    <Timeline defaultColor="bg-white" />
                 </Box>         
 
 
@@ -675,7 +541,7 @@ export default function Home() {
                                 gap: '20px'
                             }}
                         >
-                        {ToolsUsedTop.map((tools, index)=> (
+                        {toolsUsed[0].map((tools, index)=> (
                             <Tooltip 
                                 key={index}
                                 title={tools.name}
@@ -707,7 +573,7 @@ export default function Home() {
                                 gap: '20px'
                             }}
                         >
-                            {ToolsUsedBottom.map((tools, index)=> (
+                            {toolsUsed[1].map((tools, index)=> (
                                 <Tooltip 
                                     key={index}
                                     title={tools.name}
@@ -743,7 +609,7 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        height: '576px',
+                        height: {md: '576px', xs: "200px"},
                         width: '100%'
                     }}
                 >
@@ -793,9 +659,11 @@ export default function Home() {
                                             title={details.title} 
                                             about={details.about}
                                             img={details.img}
+                                            bg={details.bg}
+                                            textColor={details.textColor}
+                                            btnColor={details.btnColor}
                                         />
                             ))}
-                        
                     </Box>
 
 
@@ -808,7 +676,7 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        height: '1000px',
+                        height: {md: '1000px', xs: '1100px'},
                         widht: '100%'
                     }}
                 >
@@ -825,7 +693,7 @@ export default function Home() {
                                     textAlign: 'center',
                                     fontFamily: 'Poppins',
                                     color: '#FFF',
-                                    
+                                    // mb: {xs: '100px'}
                                 }}
                             >
                                 <span style={{

@@ -3,6 +3,8 @@ import {  useEffect, useState } from "react"
 
 
 // COMPONENTS
+import Navbar from '../../components/Header/Header'
+
 import { 
     AppBar,  
     Container, 
@@ -68,8 +70,9 @@ export default function Contacts() {
             disableGutters={true} 
             maxWidth='100%'
         >
+            <Navbar mt={4} />
             <Box
-               sx={{
+                sx={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

@@ -53,7 +53,7 @@ export default function TimelineCard({ defaultColor }) {
                     return (
                         <span
                         key={index}
-                        className="bg-gray-900 rounded-xl px-2 py-1 text-sm m-1"
+                        className="bg-[darkOrange] rounded-xl px-2 py-1 text-sm m-1"
                         >
                         {tech}
                         </span>
@@ -66,7 +66,7 @@ export default function TimelineCard({ defaultColor }) {
                     className={`${color} w-8 p-1 rounded-lg z-20 absolute left-4 top-4 sm:hidden`}
                 />
                 <a
-                    style={{ fontFamily: 'Poppins' , }} className={`${color} text-gray-950  font-medium px-4 py-1 rounded-md mx-auto cursor-pointer hover:text-white`}
+                    style={{ fontFamily: 'Poppins' , border: 'solid white 1px' }} className={`bg-transparent text-white font-medium px-4 py-1 rounded-md mx-auto cursor-pointer `}
                 >
                     {element.buttonText}
                 </a>

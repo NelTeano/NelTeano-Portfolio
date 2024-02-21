@@ -23,7 +23,7 @@ import {
 import Carousel from '../Carousel/Carousel'
 
 
-function ProjectCard({title, about, link, img}) {
+function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
 
 
 
@@ -44,7 +44,7 @@ function ProjectCard({title, about, link, img}) {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        backgroundColor: '#C15B24',
+                        backgroundColor: bg,
                         height: '100%',
                         width: {md: '50%', xs: '100%'},
                         padding: {md: '0px 0px 0px 30px', xs: '0px 0px 0px 10px'},
@@ -59,7 +59,7 @@ function ProjectCard({title, about, link, img}) {
                             lineHeight: {md: '49px', xs: '20px'},
                             letterSpacing: '0.1px',
                             textAlign: 'left',
-                            color: '#FFF'
+                            color: textColor
                         }} 
                     >
                         {title}
@@ -71,27 +71,30 @@ function ProjectCard({title, about, link, img}) {
                             fontWeight: '400',
                             lineHeight: '24px',
                             textAlign: 'left',
-                            color: '#FFF'
+                            color: textColor
                         }} 
                     >
                         {about}
                     </Typography>
-
-                    <Button
-                        sx={{
-                            backgroundColor: 'transparent',
-                            borderRadius: '5px',
-                            height: {md: '55.74px', xs: '30px'},
-                            width: {md: '227.19px', xs: '150px'},
-                            padding: {md: '12.87px, 29.6px, 12.87px, 29.6px', xs: '5px 10px 5px 10px'},
-                            color: '#FFF',
-                            border: 'solid #FFF 1.29px',
-                            fontFamily: 'Poppins',
-                            textTransform: 'capitalize  '
-                        }}
-                    >
-                        View Case Study
-                    </Button>
+                    <Link to={link}>
+                        <Button
+                            sx={{
+                                backgroundColor: 'transparent',
+                                borderRadius: '5px',
+                                height: {md: '55.74px', xs: '30px'},
+                                width: {md: '227.19px', xs: '150px'},
+                                padding: {md: '12.87px, 29.6px, 12.87px, 29.6px', xs: '5px 10px 5px 10px'},
+                                color: btnColor,
+                                border: `solid ${btnColor} 1.29px`,
+                                fontFamily: 'Poppins',
+                                textTransform: 'capitalize',
+                                fontWeight: '600',
+                                fontSize: '19.92px'
+                            }}
+                        >
+                            View Project
+                        </Button>
+                    </Link>
                 </Box>
                 <Box 
                     sx={{
@@ -113,7 +116,10 @@ ProjectCard.propTypes = {
     title: PropTypes.string,
     about: PropTypes.string,
     link: PropTypes.string,
-    img: PropTypes.array
+    img: PropTypes.array,
+    bg: PropTypes.string,
+    btnColor: PropTypes.string,
+    textColor: PropTypes.string,
 }
 
 export default ProjectCard
