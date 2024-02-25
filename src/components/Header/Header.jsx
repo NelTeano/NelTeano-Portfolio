@@ -47,16 +47,17 @@ const navPages = [
         onClick: () => {window.scrollTo(0, 800);}
     },
     {
+        page: 'CONTACT',
+        link: '/',
+        icon: <ContactIcon />,
+        onClick: () => {window.scrollTo(0, 7600);}
+    },
+    {
         page: 'PROJECTS',
         link: '/projects',
         icon: <WebIcon />,
         onClick: () => {window.scrollTo(0, 5900);}
     },
-    // {
-    //     page: 'CONTACT',
-    //     link: '/contact',
-    //     icon: <ContactIcon />,
-    // },
 ];
 
 const renderIcon = (icon) => {

@@ -5,7 +5,7 @@ import { InView } from 'react-intersection-observer';
 import Navbar from '../../components/Header/Header'
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import Timeline from "../../components/Timeline/TimelineCard"
-
+import ScrollUp from "../../components/ScrollUp/ScrollUp"
 
 
 import {  
@@ -28,6 +28,7 @@ import {
     LinkedIn as LinkedinIcon,
     Facebook as FacebookIcon,
     Instagram as InstagramIcon,
+    Mail as MailIcon
 } from '@mui/icons-material/';
 
 // CONTEXT
@@ -77,8 +78,9 @@ export default function Home() {
                     }}
             >
 
+            {/* --------------------- COMPONENTS IMPORTS ------------------------------------ */}    
             <Navbar mt={4} />
-            
+            <ScrollUp />
                 
                 {/* --------------------- WELCOME BOARD ------------------------------------ */}
                 <Box
@@ -726,7 +728,7 @@ export default function Home() {
                         <Typography
                             sx={{
                                 fontFamily: 'Poppins',
-                                fontSize: {md: '20px', xs: '14px'},
+                                fontSize: {md: '20px', xs: '12px'},
                                 fontWeight: '400',
                                 lineHeight: '30px',
                                 textDecoration: 'none',
@@ -736,20 +738,23 @@ export default function Home() {
 
                             If you have any further questions, collaborations, or opportunities you&apos;d like to discuss,
                             I would be delighted to connect with you. Please feel free to reach out to me through the following platforms:<br></br><br></br>
+                            <Link to={'mailto:jonelteano29@gmail.com'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
+                                <MailIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
+                            </Link>
                             <Link to={'https://www.linkedin.com/in/teanojonel/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
-                                <LinkedinIcon fontSize='inherit' />
+                                <LinkedinIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
                             </Link>
                             <Link to={'https://www.facebook.com/96jonel96/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
-                                <FacebookIcon fontSize='inherit' />
+                                <FacebookIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
                             </Link>
                             <Link to={'https://www.instagram.com/shu1dddd/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
-                                <InstagramIcon fontSize='inherit' />
+                                <InstagramIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
                             </Link>
                         </Typography>
                         <Typography
                             sx={{
                                 fontFamily: 'Poppins',
-                                fontSize: {md: '20px', xs: '14px'},
+                                fontSize: {md: '20px', xs: '12px'},
                                 fontWeight: '400',
                                 lineHeight: '30px',
                             }}
@@ -760,13 +765,6 @@ export default function Home() {
                     </Box>
                     
                 </Box>
-
-
-
-
-
-
-
             </Container>
         </>
     )
