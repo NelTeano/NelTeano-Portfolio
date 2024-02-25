@@ -48,7 +48,7 @@ const navPages = [
     },
     {
         page: 'PROJECTS',
-        link: '/',
+        link: '/projects',
         icon: <WebIcon />,
         onClick: () => {window.scrollTo(0, 5900);}
     },

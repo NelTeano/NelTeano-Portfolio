@@ -88,7 +88,7 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         height: {md: '1000px', xs: '700px'},
-                        mt:{md: -18, xs: -10}
+                        mt:{md: -18, xs: -15}
                     }}
                 >
 
@@ -151,7 +151,7 @@ export default function Home() {
                             <Typography
                                     sx={{
                                         fontWeight: '400',
-                                        fontSize: {md:' 130px', xs: '50px'},
+                                        fontSize: {md:' 130px', xs: '70px'},
                                         textAlign: 'center',
                                         fontFamily: 'Poppins',
                                         color: '#FFF'
@@ -189,7 +189,7 @@ export default function Home() {
                                 <Typography 
                                     sx={{
                                         fontFamily: 'Poppins',
-                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontSize: {md:' 32px', xs: '15px'},
                                         fontWeight: '400',
                                         letterSpacing: '0em',
                                         textAlign: 'center',
@@ -211,7 +211,7 @@ export default function Home() {
                                 <Typography 
                                 sx={{
                                     fontFamily: 'Poppins',
-                                    fontSize: {md:' 32px', xs: '13px'},
+                                    fontSize: {md:' 32px', xs: '15px'},
                                     fontWeight: '400',
                                     letterSpacing: '0em',
                                     textAlign: 'center',
@@ -232,7 +232,7 @@ export default function Home() {
                                 <Typography 
                                     sx={{
                                         fontFamily: 'Poppins',
-                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontSize: {md:' 32px', xs: '15px'},
                                         fontWeight: '400',
                                         letterSpacing: '0em',
                                         textAlign: 'center',
@@ -255,7 +255,7 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
-                        height: {md: '576px', xs: '700px'}
+                        height: {md: '576px', xs: '800px'}
                     }}
                 >
                     <InView as="div" 
@@ -267,7 +267,7 @@ export default function Home() {
                             <Typography
                                 sx={{
                                     fontWeight: '400',
-                                    fontSize: {md:' 130px', xs: '50px'},
+                                    fontSize: {md:' 130px', xs: '70px'},
                                     textAlign: 'center',
                                     fontFamily: 'Poppins',
                                     color: '#FFF',
@@ -305,7 +305,7 @@ export default function Home() {
                                 <Typography 
                                     sx={{
                                         fontFamily: 'Poppins',
-                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontSize: {md:' 32px', xs: '17px'},
                                         fontWeight: '400',
                                         letterSpacing: '0em',
                                         textAlign: 'center',
@@ -317,7 +317,6 @@ export default function Home() {
                         </InView>
                         
                         <Typography sx={{fontFamily: 'Poppins', fontSize: '32px', fontWeight: '400',}}>|</Typography> 
-                       
                         <InView as="div" 
                             onChange={(inView) => { 
                                 setActive2(inView);
@@ -327,7 +326,7 @@ export default function Home() {
                                 <Typography 
                                     sx={{
                                         fontFamily: 'Poppins',
-                                        fontSize: {md:' 32px', xs: '13px'},
+                                        fontSize: {md:' 32px', xs: '17px'},
                                         fontWeight: '400',
                                         letterSpacing: '0em',
                                         textAlign: 'center',
@@ -348,12 +347,12 @@ export default function Home() {
                                 <Typography 
                                 sx={{
                                     fontFamily: 'Poppins',
-                                    fontSize: {md:' 32px', xs: '13px'},
+                                    fontSize: {md:' 32px', xs: '17px'},
                                     fontWeight: '400',
                                     letterSpacing: '0em',
                                     textAlign: 'center',
                                 }}>
-                                    Certificates & Licenses
+                                    Certificates
                                 </Typography>
                             </Grow>
                         </InView> 
@@ -431,13 +430,13 @@ export default function Home() {
                         justifyContent: 'center',
                         flexDirection: 'column',
                         height: '500px',
-                        gap: {md: '48px', xs: '20px'}
+                        gap: {md: '48px', xs: '30px'}
                     }}
                 >
                         <Typography
                             sx={{
                                 fontFamily: 'Stretch Pro',
-                                fontSize: {md: '66px', xs: '30px'},
+                                fontSize: {md: '66px', xs: '40px'},
                                 fontWeight: '400',
                                 lineHeight: '67px',
                                 textAlign: 'left',
@@ -774,27 +773,33 @@ export default function Home() {
 }
 
 const skillsList = () => {
+
+    const lineStyle = {
+        fontSize: {md: '20px', xs: '15px'},
+        lineHeight: '30px'
+    }
+
     return (
         <>
             <ul>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>HTML</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>CSS</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>Material UI</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>ChakraUI</Typography></li>
+                <li><Typography sx={lineStyle}>HTML</Typography></li>
+                <li><Typography sx={lineStyle}>CSS</Typography></li>
+                <li><Typography sx={lineStyle}>Material UI</Typography></li>
+                <li><Typography sx={lineStyle}>ChakraUI</Typography></li>
             </ul>
 
             <ul>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>ReactJS</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>AngularJS</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>Javascript</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>Typescript</Typography></li>
+                <li><Typography sx={lineStyle}>ReactJS</Typography></li>
+                <li><Typography sx={lineStyle}>AngularJS</Typography></li>
+                <li><Typography sx={lineStyle}>Javascript</Typography></li>
+                <li><Typography sx={lineStyle}>Typescript</Typography></li>
             </ul>
 
             <ul>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>ElectronJS</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>NodeJS</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>MongoDB</Typography></li>
-                <li><Typography sx={{fontSize: {md: '20px', xs: '10px'}, lineHeight: '30px'}}>RestAPI</Typography></li>
+                <li><Typography sx={lineStyle}>ElectronJS</Typography></li>
+                <li><Typography sx={lineStyle}>NodeJS</Typography></li>
+                <li><Typography sx={lineStyle}>MongoDB</Typography></li>
+                <li><Typography sx={lineStyle}>RestAPI</Typography></li>
             </ul>
         </>
     );

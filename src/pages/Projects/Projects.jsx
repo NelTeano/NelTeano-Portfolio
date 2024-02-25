@@ -25,7 +25,7 @@ export default function Projects() {
                 maxWidth='100%'
             >
                 <Navbar />
-                This is Projects Page
+                Under Construction
             </Container>
     )
 }
