@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Box } from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function ScrollUp() {
@@ -7,7 +7,8 @@ export default function ScrollUp() {
     }
 
     return (
-        <Button
+        
+        <Box
         sx={{
             display: 'fixed',
             alignItems: 'center',
@@ -15,9 +16,9 @@ export default function ScrollUp() {
             position: 'fixed',
             right: '5%',
             top: '85%',
-            borderRadius: '60%',
-            height: '50px',
-            width: '30px',
+            height: {md: '50px', xs: '40px'},
+            width: {md: '50px', xs: '40px'},
+            borderRadius: '50%',
             zIndex: 999,
             cursor: 'pointer',
             backgroundColor: '#FFF',
@@ -33,7 +34,7 @@ export default function ScrollUp() {
         }}
         onClick={GoTopWindow}
     >
-        <KeyboardArrowUpIcon sx={{color: 'black'}} className="upBTN" fontSize="large" />
-    </Button>
+        <KeyboardArrowUpIcon sx={{color: 'black', fontSize: {md: '40px', xs: '25px'}}} className="upBTN" />
+    </Box>
     )
 }

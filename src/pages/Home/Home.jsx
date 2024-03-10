@@ -480,7 +480,7 @@ export default function Home() {
                                 fontSize: {md: '66px', xs: '30px'},
                                 fontWeight: '400',
                                 lineHeight: '67px',
-                                textAlign: {md: 'left', xs: 'center'},
+                                textAlign: 'center',
                                 color: '#FFF',
                                 letterSpacing: {md: '0.05em', xs:'0.1em' },
                             }}          
