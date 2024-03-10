@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { SpeedInsights } from '@vercel/speed-insights/react';
+
 
 // REACT ROUTER PROVIDER
 import { BrowserRouter } from 'react-router-dom'
@@ -28,9 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <ThemeProviderContext>
-          <SpeedInsights>
-            <App />
-          </SpeedInsights> 
+          <App />      
         </ThemeProviderContext>
       </ThemeProvider>
     </BrowserRouter>
