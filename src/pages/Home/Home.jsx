@@ -369,6 +369,7 @@ export default function Home() {
                         justifyContent: 'center',
                         flexDirection: 'column',
                         height: '800px',
+                        gap: "30px"
                     }}
                 >
                     <Box
@@ -397,7 +398,7 @@ export default function Home() {
                         </Box>
                         <Box>
                             {/* IMAGE HERE */}
-                            <img src={AvatarImg}></img>
+                            <img width={'290px'} src={AvatarImg}></img>
                         </Box>
                     </Box>
 

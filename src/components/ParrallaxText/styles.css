@@ -1,0 +1,39 @@
+
+.parallax {
+    overflow: hidden;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    margin: 0;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: white;
+    padding: 30px;
+}
+
+.parallax .scroller {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 64px;
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+
+.parallax span {
+    display: block;
+    font-family: 'Poppins';
+    margin-right: 30px;
+}
+
+@media (max-width: 900px) {
+    .parallax {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .parallax {
+        padding: 13px;
+    }
+}
