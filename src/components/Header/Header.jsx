@@ -1,4 +1,4 @@
-import { useState, cloneElement  } from 'react';
+import { useState, cloneElement, useEffect  } from 'react';
 import PropTypes  from 'prop-types'
 
 import './styles.css'
@@ -63,11 +63,15 @@ const renderIcon = (icon) => {
     return cloneElement(icon, { fontSize: '24px',  });
 };
 
-export default function Header({mt}) {
+export default function Header({mt, onscrollChangeColor}) {
     
+    const [headerColor, setHeaderColor] = useState({
+        color: 'white',
+        bgColor: 'transparent',
+    });
 
     const [anchorElNav, setAnchorElNav] = useState(false);
-
+    
     const handleOpenNavMenu = () => {
         setAnchorElNav(true);
     };
@@ -75,6 +79,34 @@ export default function Header({mt}) {
     const handleCloseNavMenu = () => {
         setAnchorElNav(false);
     };
+
+    // ACTIVATOR onscrollChangeColor props
+    if(onscrollChangeColor){
+        const listenScrollEvent = (e) => {
+            if (window.scrollY < 73) {
+                return setHeaderColor({
+                    color: 'white',
+                    bgColor: 'transparent',
+                    fontWeight: '600'
+                })
+            } else if (window.scrollY > 70) {
+                return setHeaderColor({
+                    color: 'black',
+                    bgColor: '#feb300',
+                    fontWeight: '600'
+                })
+            } 
+        }
+        
+        useEffect(() => {
+            window.addEventListener('scroll', listenScrollEvent);
+    
+            return () =>
+                window.removeEventListener('scroll', listenScrollEvent);
+        }, []);
+    }    
+
+    
 
     const list = () => (
             <Box
@@ -102,7 +134,7 @@ export default function Header({mt}) {
 
     return (
         <>
-            <AppBar position="sticky" sx={{mt: mt, backgroundColor: 'transparent', boxShadow: 'none' }}>
+            <AppBar position="sticky" sx={{mt: mt, backgroundColor: headerColor.bgColor, boxShadow: 'none', transition: '0.5s'}}>
                 <Container maxWidth="xl">
                     <Box sx={{display: 'flex', justifyContent:'space-between', alignItems: 'center', height: '100px',}}>
                         <Box>
@@ -122,7 +154,7 @@ export default function Header({mt}) {
                                         <GitHubIcon fontSize='inherit' sx={{fontSize: '40px', backgroundColor: 'black', color: 'white', borderRadius: '20px', border: 'solid white 1px '}}/>
                                     </Link>
                                 </span>
-                                <Link to={'https://github.com/NelTeano'} style={{color: 'white', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">
+                                <Link to={'https://github.com/NelTeano'} style={{color: headerColor.color, textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">
                                     NelTeano
                                 </Link>
                             </Typography>
@@ -138,6 +170,8 @@ export default function Header({mt}) {
                                         sx={{
                                             fontSize: '15px', 
                                             fontWeight: '600',
+                                            color: headerColor.color,
+                                            transition: '0.5s'
                                         }}
                                     >
                                         {pages.page}
@@ -169,5 +203,6 @@ export default function Header({mt}) {
 }
 
 Header.propTypes = {
-    mt: PropTypes.number
+    mt: PropTypes.number,
+    onscrollChangeColor: PropTypes.bool
 }

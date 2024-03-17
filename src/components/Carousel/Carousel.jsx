@@ -1,7 +1,4 @@
-
 import PropTypes from 'prop-types';
-
-
 
 
 import { 
@@ -33,7 +30,6 @@ export default function Carousel({img}) {
                     </CCarouselItem>
                 ))}
             </CCarousel>
-       
     );
 }
 
