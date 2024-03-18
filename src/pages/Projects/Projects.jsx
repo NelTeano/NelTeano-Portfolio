@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import { InView } from 'react-intersection-observer';
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 
 
 // COMPONENTS
@@ -9,6 +11,7 @@ import Navbar from '../../components/Header/Header'
 import ParallaxText from '../../components/ParrallaxText/ParallaxText';
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import { PacmanLoader } from 'react-spinners'
+
 
 import { 
     AppBar,  
@@ -25,6 +28,7 @@ import {
     Divider,
 } from '@mui/material';
 
+
 import { 
     ArrowForwardIos as ArrowForwardIosIcon,
 }
@@ -34,7 +38,7 @@ import { Link } from 'react-router-dom';
 
 // ASSETS
 import myPicture from '../../assets/mySquarePicture.png'
-import SampleImg from '../../assets/SampleProjectImg.png'
+// import SampleImg from '../../assets/SampleProjectImg.png'
 
 import { projectDetails } from '../Home/HomeElements'
 
@@ -42,14 +46,6 @@ export default function Projects() {
 
 
     const [initParticles, setInitParticles] = useState(false);
-    
-    useEffect(() => {
-        initParticlesEngine(async (engine) => {
-            await loadFull(engine);
-        }).then(() => {
-            setInitParticles(true);
-        });
-    }, []);
 
     const options = useMemo(
         () => ({
@@ -122,6 +118,33 @@ export default function Projects() {
         [],
     );
 
+    // PROJECT CARDS ANIMATION
+    const boxVariant = {
+        visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+        hidden: { opacity: 0, scale: 0, transition: { duration: 1 } }
+    };
+    
+    
+    useEffect(() => {
+        initParticlesEngine(async (engine) => {
+            await loadFull(engine);
+        }).then(() => {
+            setInitParticles(true);
+        });
+    }, []);
+
+    const control = useAnimation();
+    const [ref, inView] = useInView();
+
+    useEffect(() => {
+        if (inView) {
+            control.start("visible");
+        } else { 
+            control.start("hidden");
+        }
+    }, [control, inView]);
+
+    console.log("Checking Viewpoint", inView);
 
     return (
             
@@ -249,14 +272,22 @@ export default function Projects() {
                                 backgroundColor: 'rgba(19, 19, 19, 1)',
                                 flexWrap: 'wrap',
                                 position:'relative',
-                                height: '900px',
+                                height: 'auto',
                                 width: '100%',
-                                gap: {md: '80px', xs: '50px'}
+                                gap: {md: '80px', xs: '50px'},
                             }}
+                            ref={ref}
                         >
                             {projectDetails.map((details, index)=> (
+                                <motion.div
+                                    key={index}
+                                    className="box"
+                                    variants={boxVariant}
+                                    initial="hidden"
+                                    animate={control}
+                                >
                                         <ProjectCard 
-                                            key={index}
+                                            
                                             title={details.title} 
                                             about={details.about}
                                             img={details.img}
@@ -264,8 +295,28 @@ export default function Projects() {
                                             textColor={details.textColor}
                                             btnColor={details.btnColor}
                                         />
+                                </motion.div>
                             ))}
                         </Box>
+
+
+
+
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                backgroundColor: 'black',
+                                flexWrap: 'wrap',
+                                position:'relative',
+                                height: '1000px',
+                                width: '100%',
+                                gap: {md: '80px', xs: '50px'},
+                            }}
+                            >
+                                <Typography sx={{fontSize: '100px', color: 'white'}}>COMING SOON</Typography>
+                            </Box>
                     </Container>
                 ) : (
                     <Container
