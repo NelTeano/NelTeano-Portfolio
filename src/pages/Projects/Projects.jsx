@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
+import { InView } from 'react-intersection-observer';
 
 
 // COMPONENTS
 import Navbar from '../../components/Header/Header'
 import ParallaxText from '../../components/ParrallaxText/ParallaxText';
+import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import { PacmanLoader } from 'react-spinners'
 
 import { 
@@ -21,7 +23,6 @@ import {
     ListItemIcon,
     ListItemText,
     Divider,
-    CircularProgress
 } from '@mui/material';
 
 import { 
@@ -33,6 +34,9 @@ import { Link } from 'react-router-dom';
 
 // ASSETS
 import myPicture from '../../assets/mySquarePicture.png'
+import SampleImg from '../../assets/SampleProjectImg.png'
+
+import { projectDetails } from '../Home/HomeElements'
 
 export default function Projects() {
 
@@ -118,7 +122,6 @@ export default function Projects() {
         [],
     );
 
-    
 
     return (
             
@@ -138,7 +141,7 @@ export default function Projects() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-around',
-                                flexDirection: 'row',
+                                flexDirection: {md: 'row', xs: 'column'},
                                 height: '800px',
                                 zIndex: 100
                             }}
@@ -182,6 +185,7 @@ export default function Projects() {
                                 </Typography>
                                 <Typography
                                     sx={{
+                                        display: {md: 'flex'},
                                         fontFamily: 'Poppins',
                                         fontSize: {md: '20px', xs: '14px'},
                                         fontWeight: '400',
@@ -190,9 +194,9 @@ export default function Projects() {
                                         color: '#FFF'
                                     }}
                                 >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a ornare enim.  Mauris ornare <br></br>
-                                tristique venenatis. Aenean ultricies posuere volutpat.  Sed facilisis nisl vel felis cursus, <br></br>
-                                sodales congue lacus porttitor  consectetur adipiscing elit. Suspendisse a ornare
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a ornare enim.  Mauris ornare <br></br>
+                                    tristique venenatis. Aenean ultricies posuere volutpat.  Sed facilisis nisl vel felis cursus, <br></br>
+                                    sodales congue lacus porttitor  consectetur adipiscing elit. Suspendisse a ornare
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -237,17 +241,31 @@ export default function Projects() {
                             </ParallaxText>
                         </Box>
 
-                {/* <Box
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        height: '800px',
-                        backgroundColor: 'green',
-                        position:'relative'
-                    }}
-                >
-                    
-                </Box> */}
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                backgroundColor: 'rgba(19, 19, 19, 1)',
+                                flexWrap: 'wrap',
+                                position:'relative',
+                                height: '900px',
+                                width: '100%',
+                                gap: {md: '80px', xs: '50px'}
+                            }}
+                        >
+                            {projectDetails.map((details, index)=> (
+                                        <ProjectCard 
+                                            key={index}
+                                            title={details.title} 
+                                            about={details.about}
+                                            img={details.img}
+                                            bg={details.bg}
+                                            textColor={details.textColor}
+                                            btnColor={details.btnColor}
+                                        />
+                            ))}
+                        </Box>
                     </Container>
                 ) : (
                     <Container
@@ -260,7 +278,7 @@ export default function Projects() {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 height: '900px',
-                                backgroundColor: 'black'
+                                backgroundColor: 'rgba(19, 19, 19, 1)',
                             }}
                         >
                             <PacmanLoader

@@ -34,7 +34,7 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
                 sx={{
                     display: 'flex',
                     flexDirection: {md: 'row', xs: 'column-reverse'},
-                    width: {md: '1197px', xs: '300px'},
+                    width: {lg: '1197px', md: '997px', xs: '300px'},
                     height: {md: '400px', xs: '400px'},
                     border: 'none',
                 }}
