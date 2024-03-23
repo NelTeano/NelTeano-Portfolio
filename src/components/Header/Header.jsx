@@ -47,15 +47,16 @@ const navPages = [
         onClick: () => {window.scrollTo(0, 800);}
     },
     {
+        page: 'PROJECTS',
+        link: '/',
+        icon: <WebIcon />,
+        onClick: () => {window.scrollTo(0, 5950)}
+    },
+    {
         page: 'CONTACT',
         link: '/',
         icon: <ContactIcon />,
-        onClick: () => {window.scrollTo(0, 7600);}
-    },
-    {
-        page: 'PROJECTS',
-        link: '/projects',
-        icon: <WebIcon />,
+        onClick: () => {window.scrollTo(0, 7700);}
     },
 ];
 
@@ -98,12 +99,12 @@ export default function Header({mt, onscrollChangeColor}) {
             } 
         }
         
-        useEffect(() => {
-            window.addEventListener('scroll', listenScrollEvent);
+        // useEffect(() => {
+        //     window.addEventListener('scroll', listenScrollEvent);
     
-            return () =>
-                window.removeEventListener('scroll', listenScrollEvent);
-        }, []);
+        //     return () =>
+        //         window.removeEventListener('scroll', listenScrollEvent);
+        // }, []);
     }    
 
     

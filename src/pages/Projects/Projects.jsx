@@ -3,13 +3,14 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
+import { InView } from 'react-intersection-observer';
 
 
 // COMPONENTS
 import Navbar from '../../components/Header/Header'
 import ParallaxText from '../../components/ParrallaxText/ParallaxText';
-import ProjectCard from '../../components/ProjectCard/ProjectCard'
+import ProjectCard from '../../components/ProjectCard/ProjectCard';
+import Footer from '../../components/Footer/Footer'
 import { PacmanLoader } from 'react-spinners'
 
 
@@ -26,6 +27,10 @@ import {
     ListItemIcon,
     ListItemText,
     Divider,
+    Fade,
+    Grow,
+    Slide,
+    Zoom
 } from '@mui/material';
 
 
@@ -38,13 +43,14 @@ import { Link } from 'react-router-dom';
 
 // ASSETS
 import myPicture from '../../assets/mySquarePicture.png'
+import TopographicImg from '../../assets/ProjectsBG.png'
 // import SampleImg from '../../assets/SampleProjectImg.png'
 
 import { projectDetails } from '../Home/HomeElements'
 
 export default function Projects() {
 
-
+    const [ProjectText, setProjectText] = useState(false);
     const [initParticles, setInitParticles] = useState(false);
 
     const options = useMemo(
@@ -166,7 +172,6 @@ export default function Projects() {
                                 justifyContent: 'space-around',
                                 flexDirection: {md: 'row', xs: 'column'},
                                 height: '800px',
-                                zIndex: 100
                             }}
                         >
                             <Box
@@ -244,7 +249,7 @@ export default function Projects() {
                         <Box 
                             sx={{
                                 paddingTop: {md: '10vh', xs: '10vh'},
-                                paddingBottom: {md: '30vh', xs: '30vh'},
+                                paddingBottom: {md: '0vh', xs: '30vh'},
                                 position: 'relative'
                             }}
                         >
@@ -263,60 +268,89 @@ export default function Projects() {
                                 </Typography>
                             </ParallaxText>
                         </Box>
-
+                        
+                        
                         <Box
                             sx={{
                                 display: 'flex',
+                                position:'relative',
                                 alignItems: 'center',
                                 justifyContent: 'center',
+                                flexDirection: 'column',
+                                height: {md: '976px', xs: "200px"},
                                 backgroundColor: 'rgba(19, 19, 19, 1)',
-                                flexWrap: 'wrap',
-                                position:'relative',
-                                height: 'auto',
-                                width: '100%',
-                                gap: {md: '80px', xs: '50px'},
+                                width: '100%'
                             }}
-                            ref={ref}
                         >
-                            {projectDetails.map((details, index)=> (
-                                <motion.div
-                                    key={index}
-                                    className="box"
-                                    variants={boxVariant}
-                                    initial="hidden"
-                                    animate={control}
-                                >
-                                        <ProjectCard 
-                                            
-                                            title={details.title} 
-                                            about={details.about}
-                                            img={details.img}
-                                            bg={details.bg}
-                                            textColor={details.textColor}
-                                            btnColor={details.btnColor}
-                                        />
-                                </motion.div>
-                            ))}
+                            <InView as="div" 
+                                onChange={(inView) => { 
+                                    setProjectText(inView)
+                                }}
+                            >
+                                <Grow in={ProjectText}  timeout={2000}>
+                                    <Typography
+                                        sx={{
+                                            fontWeight: '400',
+                                            fontSize: {md:' 130px', xs: '50px'},
+                                            textAlign: 'center',
+                                            fontFamily: 'Poppins',
+                                            color: '#FFF',
+                                        }}
+                                    >
+                                        <span style={{
+                                            fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                            WebkitTextFillColor: 'transparent',
+                                            WebkitTextStrokeWidth: '1px',
+                                            WebkitTextStrokeColor: '#FFF'
+                                            }}> Projects
+                                        </span>
+                                    </Typography>
+                                </Grow>
+                            </InView>  
+                        </Box>
+                        
+                        <Box sx={{backgroundColor: 'rgba(19, 19, 19, 1)', position: 'relative'}}>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    backgroundColor: 'rgba(19, 19, 19, 1)',
+                                    background: `url(${TopographicImg})`,
+                                    flexWrap: 'wrap',
+                                    position:'relative',
+                                    height: 'auto',
+                                    width: '100%',
+                                    gap: {md: '80px', xs: '50px'},
+                                    padding: '100px 0px 200px 0px',
+                                    zIndex: 1000,
+                                }}
+                                ref={ref}
+                            >
+
+                                {projectDetails.map((details, index)=> (
+                                    <motion.div
+                                        key={index}
+                                        className="box"
+                                        variants={boxVariant}
+                                        initial="hidden"
+                                        animate={control}
+                                    >
+                                            <ProjectCard 
+                                                
+                                                title={details.title} 
+                                                about={details.about}
+                                                img={details.img}
+                                                bg={details.bg}
+                                                textColor={details.textColor}
+                                                btnColor={details.btnColor}
+                                            />
+                                    </motion.div>
+                                ))}
+                            </Box>
                         </Box>
 
-
-
-
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                backgroundColor: 'black',
-                                flexWrap: 'wrap',
-                                position:'relative',
-                                height: '1000px',
-                                width: '100%',
-                                gap: {md: '80px', xs: '50px'},
-                            }}
-                            >
-                                <Typography sx={{fontSize: '100px', color: 'white'}}>COMING SOON</Typography>
-                            </Box>
+                        <Footer />
                     </Container>
                 ) : (
                     <Container
@@ -328,7 +362,7 @@ export default function Projects() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                height: '900px',
+                                height: '800px',
                                 backgroundColor: 'rgba(19, 19, 19, 1)',
                             }}
                         >

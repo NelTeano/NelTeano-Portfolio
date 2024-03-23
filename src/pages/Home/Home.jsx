@@ -4,9 +4,9 @@ import { InView } from 'react-intersection-observer';
 // COMPONENTS
 import Navbar from '../../components/Header/Header'
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
-import Timeline from "../../components/Timeline/TimelineCard"
-import ScrollUp from "../../components/ScrollUp/ScrollUp"
-
+import Timeline from "../../components/Timeline/TimelineCard";
+import ScrollUp from "../../components/ScrollUp/ScrollUp";
+import Footer from '../../components/Footer/Footer'
 
 import {  
     Container, 
@@ -25,10 +25,7 @@ import { Link } from 'react-router-dom';
 
 // ICONS
 import { 
-    LinkedIn as LinkedinIcon,
-    Facebook as FacebookIcon,
-    Instagram as InstagramIcon,
-    Mail as MailIcon
+    TrendingFlat as ArrowForwardIosIcon,
 } from '@mui/icons-material/';
 
 // CONTEXT
@@ -51,9 +48,11 @@ import {
 export default function Home() {
 
     const { theme } = useContext(Theme);
+    const projects = projectDetails.slice(0, 2);
 
     console.log(theme);
 
+    
 
     const EnableAnimation = (enable) => {
         setActive(enable);
@@ -63,7 +62,6 @@ export default function Home() {
     const [active, setActive] = useState(false); // WELCOME BOARD
     const [active2, setActive2] = useState(false); // ABOUT BOARD
     const [active3, setActive3] = useState(false); // PROJECT BOARD
-    const [active4, setActive4] = useState(false); // FOOTER BOARD
 
     return (
         <>
@@ -658,7 +656,7 @@ export default function Home() {
                         }}
                     >
                         
-                            {projectDetails.map((details, index)=> (
+                            {projects.map((details, index)=> (
                                         <ProjectCard 
                                             key={index}
                                             title={details.title} 
@@ -669,103 +667,33 @@ export default function Home() {
                                             btnColor={details.btnColor}
                                         />
                             ))}
+                        
+                        <Typography
+                                    sx={{
+                                        mt: 4,
+                                        fontFamily: 'Poppins',
+                                        fontSize: {md: '24px', xs: '14px'},
+                                        fontWeight: '600',
+                                        lineHeight: '30px',
+                                        textAlign: {md: 'center', xs: 'center'},
+                                        color: '#FFF'
+                                    }}
+                                >
+                                    <Link
+                                        className='view-design'
+                                        to={'/projects'}
+                                    >
+                                        See More Projects <ArrowForwardIosIcon />
+                                    </Link>
+                        </Typography>
                     </Box>
 
 
 
 
                 {/* --------------------- FOOTER BOARD ------------------------------------ */}   
-                <Box
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexDirection: 'column',
-                        height: {md: '1000px', xs: '1100px'},
-                        widht: '100%'
-                    }}
-                >
-                    <InView as="div" 
-                        onChange={(inView) => { 
-                            setActive4(inView)
-                        }}
-                    >
-                        <Slide  in={active4}  timeout={1300}>
-                            <Typography
-                                sx={{
-                                    fontWeight: '400',
-                                    fontSize: {md:' 64px', xs: '30px'},
-                                    textAlign: 'center',
-                                    fontFamily: 'Poppins',
-                                    color: '#FFF',
-                                    // mb: {xs: '100px'}
-                                }}
-                            >
-                                <span style={{
-                                    background: 'linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44)',
-                                    fontFamily: 'Stretch Pro, Arial, sans-serif',
-                                    WebkitTextFillColor: 'transparent',
-                                    WebkitBackgroundClip: 'text'}}
-                                > 
-                                    LET’S CREATE <br></br>
-                                    TOGEETHER
-                                </span>
-                            </Typography>
-                        </Slide>
-                    </InView>  
-
-                    
-
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: '242px',
-                            width: {md:'892px', xs: '300px'},
-                            gap: '32px',
-                            color: 'white'
-                        }}  
-                    >
-                        <Typography
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md: '20px', xs: '12px'},
-                                fontWeight: '400',
-                                lineHeight: '30px',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            I would like to express my heartfelt gratitude for taking the time to review my portfolio. <br></br><br></br>
-
-                            If you have any further questions, collaborations, or opportunities you&apos;d like to discuss,
-                            I would be delighted to connect with you. Please feel free to reach out to me through the following platforms:<br></br><br></br>
-                            <Link to={'mailto:jonelteano29@gmail.com'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
-                                <MailIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
-                            </Link>
-                            <Link to={'https://www.linkedin.com/in/teanojonel/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
-                                <LinkedinIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
-                            </Link>
-                            <Link to={'https://www.facebook.com/96jonel96/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
-                                <FacebookIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
-                            </Link>
-                            <Link to={'https://www.instagram.com/shu1dddd/'} target="_blank" rel="noopener noreferrer" style={{color: 'white', fontSize: '60px'}} >
-                                <InstagramIcon sx={{fontSize: {md: '70px', xs: '50px'}}} fontSize='inherit' />
-                            </Link>
-                        </Typography>
-                        <Typography
-                            sx={{
-                                fontFamily: 'Poppins',
-                                fontSize: {md: '20px', xs: '12px'},
-                                fontWeight: '400',
-                                lineHeight: '30px',
-                            }}
-                        >
-                            Once again, I extend my deepest appreciation for your time and consideration.
-                            I look forward to the possibility of collaborating with you in the future. Thank you!
-                        </Typography>
-                    </Box>
-                    
-                </Box>
+                
+                <Footer/>
             </Container>
         </>
     )

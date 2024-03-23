@@ -33,6 +33,8 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
                 
                 sx={{
                     display: 'flex',
+                    position: 'relative',
+                    zIndex: 2,
                     flexDirection: {md: 'row', xs: 'column-reverse'},
                     width: {lg: '1197px', md: '997px', xs: '300px'},
                     height: {md: '400px', xs: '400px'},
@@ -48,7 +50,7 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
                         height: '100%',
                         width: {md: '50%', xs: '100%'},
                         padding: {md: '0px 0px 0px 30px', xs: '0px 0px 0px 10px'},
-                        gap: '20px'
+                        gap: '20px',
                     }}
                 >
                     <Typography
