@@ -652,7 +652,8 @@ export default function Home() {
                             alignItems: 'center',
                             flexDirection: 'column',
                             width: '100%',
-                            gap: {md: '35px', xs: '50px'}
+                            gap: {md: '35px', xs: '50px'},
+                            mb: {md: 10, xs: 0}
                         }}
                     >
                         

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types'
 
 // COMPONENTS
@@ -17,7 +18,8 @@ import {
     ListItemText,
     Divider,
     Paper,
-    Button
+    Button,
+    Modal
 } from '@mui/material';
 
 import Carousel from '../Carousel/Carousel'
@@ -25,6 +27,12 @@ import Carousel from '../Carousel/Carousel'
 
 function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
 
+    const [handleModal, setModal] = useState(false);
+
+    console.log(handleModal)
+
+    const handleOpen = () => setModal(true);
+    const handleClose = () => setModal(false);
 
 
     return (
@@ -93,6 +101,7 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
                                 fontWeight: '600',
                                 fontSize: '19.92px'
                             }}
+                            onClick={handleOpen}
                         >
                             View Project
                         </Button>
@@ -110,9 +119,64 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
                     <Carousel img={img}  />
                 </Box>
             </Box>
+            <ViewProject isOpen={handleModal} HandleClose={handleClose}/>
         </>
     )
 }
+
+const style = {
+    display: 'flex',
+    flexDirection: 'row',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '80%',
+    height: {md: '800px', xs: '600px'},
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
+
+
+const ViewProject = ({isOpen, HandleClose}) => {
+
+    
+    return (
+        <>
+            <Modal
+                open={isOpen}
+                onClose={HandleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <Box>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            Text in a modal
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                        </Typography>
+                    </Box>
+                    <Box>
+                    
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Text in a modal
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </Typography>
+                    </Box>
+                </Box>
+            </Modal>
+        </>
+    )
+}
+
+
+
 
 ProjectCard.propTypes = {
     title: PropTypes.string,
@@ -122,6 +186,11 @@ ProjectCard.propTypes = {
     bg: PropTypes.string,
     btnColor: PropTypes.string,
     textColor: PropTypes.string,
+}
+
+ViewProject.propTypes = {
+    isOpen: PropTypes.bool,
+    HandleClose: PropTypes.func 
 }
 
 export default ProjectCard
