@@ -47,7 +47,6 @@ export default function Carousel({img}) {
                     onClick={handleOpen}
                 >
                     <CCarousel 
-                        controls 
                         transition="crossfade" 
                         className="carousel"
                     >

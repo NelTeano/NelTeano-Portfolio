@@ -1,9 +1,11 @@
+import PropTypes from 'prop-types'
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { InView } from 'react-intersection-observer';
+
 
 
 // COMPONENTS
@@ -15,22 +17,10 @@ import { PacmanLoader } from 'react-spinners'
 
 
 import { 
-    AppBar,  
     Container, 
     Typography,
     Box,
-    IconButton,
-    SwipeableDrawer,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-    Divider,
-    Fade,
     Grow,
-    Slide,
-    Zoom
 } from '@mui/material';
 
 
@@ -44,7 +34,6 @@ import { Link } from 'react-router-dom';
 // ASSETS
 import myPicture from '../../assets/mySquarePicture.png'
 import TopographicImg from '../../assets/ProjectsBG.png'
-// import SampleImg from '../../assets/SampleProjectImg.png'
 
 import { projectDetails } from '../Home/HomeElements'
 
@@ -123,13 +112,6 @@ export default function Projects() {
         }),
         [],
     );
-
-    // PROJECT CARDS ANIMATION
-    const boxVariant = {
-        visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-        hidden: { opacity: 0, scale: 0, transition: { duration: 1 } }
-    };
-    
     
     useEffect(() => {
         initParticlesEngine(async (engine) => {
@@ -139,18 +121,14 @@ export default function Projects() {
         });
     }, []);
 
-    const control = useAnimation();
-    const [ref, inView] = useInView();
 
-    useEffect(() => {
-        if (inView) {
-            control.start("visible");
-        } else { 
-            control.start("hidden");
-        }
-    }, [control, inView]);
+    console.log("Checking Particles", initParticles);
 
-    console.log("Checking Viewpoint", inView);
+
+
+
+
+
 
     return (
             
@@ -313,6 +291,7 @@ export default function Projects() {
                             <Box
                                 sx={{
                                     display: 'flex',
+                                    flexDirection: 'column',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     backgroundColor: 'rgba(19, 19, 19, 1)',
@@ -321,32 +300,24 @@ export default function Projects() {
                                     position:'relative',
                                     height: 'auto',
                                     width: '100%',
-                                    gap: {md: '80px', xs: '50px'},
+                                    gap: {md: '140px', xs: '50px'},
                                     padding: '100px 0px 200px 0px',
                                     zIndex: 1000,
                                 }}
-                                ref={ref}
                             >
-
-                                {projectDetails.map((details, index)=> (
-                                    <motion.div
-                                        key={index}
-                                        className="box"
-                                        variants={boxVariant}
-                                        initial="hidden"
-                                        animate={control}
-                                    >
-                                            <ProjectCard 
-                                                
-                                                title={details.title} 
-                                                about={details.about}
-                                                img={details.img}
-                                                bg={details.bg}
-                                                textColor={details.textColor}
-                                                btnColor={details.btnColor}
-                                            />
-                                    </motion.div>
-                                ))}
+                                    {projectDetails.map((details, index)=> (
+                                        <AnimationContainer key={index}>
+                                                <ProjectCard 
+                                                    title={details.title} 
+                                                    about={details.about}
+                                                    img={details.img}
+                                                    bg={details.bg}
+                                                    textColor={details.textColor}
+                                                    btnColor={details.btnColor}
+                                                />
+                                        </AnimationContainer>
+                                    ))} 
+                                
                             </Box>
                         </Box>
 
@@ -378,5 +349,47 @@ export default function Projects() {
     )
 }
 
+
+
+const AnimationContainer = ({children}) => {
+
+    const cardVariants = {
+        offscreen: {
+            rotate: -50,
+            y: 3000,
+            },
+        onscreen: {
+            y: 50,
+            rotate: 0,
+            transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 1
+            }
+        }
+    };
+
+    return (
+        <>
+            <motion.div
+                className="card-container"
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+            >        
+                <motion.div variants={cardVariants}>
+                    {children}
+                </motion.div>
+            </motion.div>
+        </>
+    )
+}
+
+
+
+
+AnimationContainer.propTypes = {
+    children: PropTypes.node
+}
 
 

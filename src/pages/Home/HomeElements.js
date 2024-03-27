@@ -6,6 +6,38 @@ import mysqlImg from '../../assets/mysqlImg.png'    // SOFTWARE TOOLS IMG
 import mongodbImg from '../../assets/mongodbImg.png'    // SOFTWARE TOOLS IMG
 
 
+
+
+// PROJECT TOOLS PICTURES
+import { 
+    Home,
+    Home1,
+    Home2,
+    Home3,
+    Home4,
+    BulkOrder,
+    DashBoardHome,
+    History,
+    LoginPage,
+    MobileView,
+    Receipt,
+    Registration,
+    SingleOrder,
+    TrackOrder 
+} from '../../assets/WATER-REFILLING-PROJECT/Exporter'
+
+// import { 
+//     Home as HotelHome,
+//     Home1 as HotelHome1,
+//     Home2 as HotelHome2,
+//     RoomsCollection,
+//     RoomsAmenties,
+//     DateBook,
+//     BookRoom
+// } from '../../assets/HOTEL-BOOKING/Exporter'
+
+
+
 const toolsUsed = [
     [
         {
@@ -54,7 +86,7 @@ const toolsUsed = [
 const projectDetails = [
     {
         title: 'WATER REFILLING SYSTEM',
-        about: 'A mobile app design for Bean Block’s E-commerce app ',
+        about: 'A website of Water Refilling Station for client able to order online and manage it using its feautures',
         link: '#',
         bg: '#003f88',
         textColor: '#FFF',
@@ -62,12 +94,60 @@ const projectDetails = [
         img: 
         [   
             {   
-                label: 'Test1',
-                imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+                label: 'Home Page',
+                imgPath: Home,
             },
-            {
-                label: 'Test2',
-                imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+            {   
+                label: 'Home Page',
+                imgPath: Home1,
+            },
+            {   
+                label: 'Home Page',
+                imgPath: Home2,
+            },
+            {   
+                label: 'Home Page',
+                imgPath: Home3,
+            },
+            {   
+                label: 'Home Page',
+                imgPath: Home4,
+            },
+            {   
+                label: 'DashBoard Page',
+                imgPath: DashBoardHome,
+            },
+            {   
+                label: 'BulkOrder Page',
+                imgPath: BulkOrder,
+            },
+            {   
+                label: 'SingleOrder Page',
+                imgPath: SingleOrder,
+            },
+            {   
+                label: 'Receipt Page',
+                imgPath: Receipt,
+            },
+            {   
+                label: 'History Page',
+                imgPath: History,
+            },
+            {   
+                label: 'Registration Page',
+                imgPath: Registration,
+            },
+            {   
+                label: 'TrackOrder Page',
+                imgPath: TrackOrder,
+            },
+            {   
+                label: 'Login Page',
+                imgPath: LoginPage,
+            },
+            {   
+                label: 'MobileView',
+                imgPath: MobileView,
             },
         ],
     },
@@ -80,16 +160,40 @@ const projectDetails = [
         btnColor: '#FFF',
         img: 
         [   
+            // {   
+            //     label: 'Landing Page',
+            //     imgPath: HotelHome,
+            // },
+            // {   
+            //     label: 'Landing Page',
+            //     imgPath: HotelHome1,
+            // },
+            // {   
+            //     label: 'Landing Page',
+            //     imgPath: HotelHome2,
+            // },
+            // {   
+            //     label: 'Landing Page',
+            //     imgPath: RoomsCollection,
+            // },
+            // {   
+            //     label: 'Landing Page',
+            //     imgPath: RoomsAmenties,
+            // },
+            // {   
+            //     label: 'Landing Page',
+            //     imgPath: DateBook,
+            // },
+            // {   
+            //     label: 'Landing Page',
+            //     imgPath: BookRoom,
+            // },
             {   
                 label: 'Landing Page',
-                imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+                imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
             },
             {
                 label: 'Booking Page',
-                imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-            },
-            {
-                label: 'Reservation Form Page',
                 imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
             },
         ],

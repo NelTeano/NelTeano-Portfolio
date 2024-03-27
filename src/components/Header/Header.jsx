@@ -54,7 +54,7 @@ const navPages = [
     },
     {
         page: 'CONTACT',
-        link: '/',
+        link: '',
         icon: <ContactIcon />,
         onClick: () => {window.scrollTo(0, 7700);}
     },

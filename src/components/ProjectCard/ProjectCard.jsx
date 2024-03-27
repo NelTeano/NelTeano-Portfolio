@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types'
 
 // COMPONENTS
-import { Link, Navigate} from 'react-router-dom';
+import { Link,} from 'react-router-dom';
 
 import { 
     AppBar,  
@@ -19,10 +19,46 @@ import {
     Divider,
     Paper,
     Button,
-    Modal
+    Modal,
+    Tooltip
 } from '@mui/material';
 
+import { 
+    CCarousel,
+    CCarouselItem,
+    CImage,
+    CCarouselCaption
+} from '@coreui/react'
+
 import Carousel from '../Carousel/Carousel'
+
+
+// ICONS
+import {
+    GitHub as GitHubIcon,
+    OpenInNew as LinkNewTabIcon
+} from '@mui/icons-material'; 
+
+import { 
+    IoLogoElectron as ElectronIcon,
+    IoLogoReact ,
+    IoLogoJavascript ,
+    IoLogoCss3 ,
+    IoLogoHtml5 ,
+    IoLogoNodejs ,
+    
+} from "react-icons/io5";
+
+import { 
+    SiExpress ,
+    SiMongodb ,
+    SiTypescript ,
+    SiMysql ,
+    SiChakraui 
+} from "react-icons/si";
+
+
+
 
 
 function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
@@ -107,42 +143,48 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
                         </Button>
                     </Link>
                 </Box>
+                <Tooltip  placement="right" title={'View Photos'}>
                 <Box 
                     sx={{
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '100%',
+                        cursor: 'pointer',
                         width: {md: '50%', xs: '100%'},
                     }}
                 >
                     <Carousel img={img}  />
                 </Box>
+                </Tooltip>
             </Box>
-            <ViewProject isOpen={handleModal} HandleClose={handleClose}/>
+            <ViewProject isOpen={handleModal} HandleClose={handleClose} images={img} bg={bg} textColor={textColor}/>
         </>
     )
 }
 
-const style = {
-    display: 'flex',
-    flexDirection: 'row',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '80%',
-    height: {md: '800px', xs: '600px'},
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
 
 
-const ViewProject = ({isOpen, HandleClose}) => {
+const ViewProject = ({isOpen, HandleClose, images, bg, textColor}) => {
 
-    
+    const style = {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '80%',
+        height: {md: '850px', xs: '600px'},
+        bgcolor: 'background.paper',
+        backgroundColor: `${bg}`,
+        // border: `1px solid ${textColor}`,
+        boxShadow: 24,
+        gap: {md: '60px'}
+    };
+
     return (
         <>
             <Modal
@@ -152,22 +194,202 @@ const ViewProject = ({isOpen, HandleClose}) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Box>
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                            Text in a modal
-                        </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            background: 'transparent',
+                            width: '800px',
+                            gap: '40px'
+                        }}
+                    >
+                        <Box>
+                            <Typography
+                                sx={{
+                                    fontFamily: 'Stretch Pro',
+                                    fontSize: {md: '48px', xs: '20px'},
+                                    fontWeight: '400',
+                                    lineHeight: {md: '49px', xs: '20px'},
+                                    letterSpacing: '0.1px',
+                                    textAlign: 'left',
+                                    color: `${textColor}`
+                                }} 
+                            >
+                                Hotel Booking Management System
+                            </Typography>
+                        </Box>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '20px',
+                                color: `${textColor}`
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontFamily: 'Poppins',
+                                    fontSize: {md: '20px', xs: '14px'},
+                                    fontWeight: '400',
+                                    lineHeight: '30px',
+                                    textAlign: {md: 'left', xs: 'center'},
+                                }}
+                            >
+                                Tech Stack
+                            </Typography>
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px', }}>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                backgroundColor: 'transparent',
+                                                border: `solid 1px ${textColor}`,
+                                                width: '100px',
+                                                padding: 0.2,
+                                                borderRadius: '40px',
+                                                gap: '5px'
+                                            }}
+                                        >
+                                            <Typography >React</Typography> 
+                                            <ElectronIcon fontSize={'20px'} />
+                                        </Box>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                backgroundColor: 'transparent',
+                                                border: `solid 1px ${textColor}`,
+                                                width: '100px',
+                                                padding: 0.2,
+                                                borderRadius: '40px',
+                                                gap: '5px'
+                                            }}
+                                        >
+                                            <Typography >MaterialUI</Typography> 
+                                            
+                                        </Box>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                backgroundColor: 'transparent',
+                                                border: `solid 1px ${textColor}`,
+                                                width: '100px',
+                                                padding: 0.2,
+                                                borderRadius: '40px',
+                                                gap: '5px'
+                                            }}
+                                        >
+                                            <Typography >React</Typography> 
+                                            <ElectronIcon fontSize={'20px'} />
+                                        </Box>
+                                </Box>
+                            
+                            <Box
+                            >
+                                <Typography 
+                                    sx={{
+                                        fontFamily: 'Poppins',
+                                        fontSize: {md: '20px', xs: '14px'},
+                                        fontWeight: '400',
+                                        lineHeight: '30px',
+                                        textAlign: {md: 'left', xs: 'center'},
+                                    }}
+                                >
+                                    Resposibilities :
+                                </Typography>
+                                <Typography >
+                                    <List disablePadding sx={{ listStyleType: 'disc', listStylePosition: 'inside' }}>
+                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
+                                        </ListItem>
+                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  
+                                        </ListItem>
+                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
+                                        </ListItem>
+                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
+                                        </ListItem>
+                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
+                                        </ListItem>
+                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                                        </ListItem>
+                                    </List>
+                                </Typography>
+                            </Box>
+
+                            <Typography 
+                                sx={{
+                                    fontFamily: 'Poppins',
+                                    fontSize: {md: '20px', xs: '14px'},
+                                    fontWeight: '400',
+                                    lineHeight: '30px',
+                                    textAlign: {md: 'left', xs: 'center'},
+                                }}
+                            >
+                                Resources :
+                            </Typography>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    gap: '100px'
+                                }}
+                            >
+                                <Link to={'https://github.com/NelTeano/'} target="_blank" rel="noopener noreferrer">
+                                    <Typography>
+                                        Source Code : <GitHubIcon />
+                                    </Typography>
+                                </Link>
+                                <Link to={'https://portfolio-jonel.vercel.app/'} target="_blank" rel="noopener noreferrer">
+                                    <Typography>
+                                        Live View : <LinkNewTabIcon />
+                                    </Typography>
+                                </Link>
+                            </Box>
+                        </Box>
                     </Box>
-                    <Box>
-                    
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+
+                    <Box 
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            background: `rgba(19, 19, 19, 1)`,
+                            height: '100%',
+                            width: '600px',
+                        }}
+                    >
+                        <CCarousel 
+                            controls 
+                            transition="crossfade" 
+                            className="carousel"
+                        >
+                            {images.map((slide, index) => (
+                                <CCarouselItem interval={1000} style={{height: '780px', width: '600px'}}  className='carousel-item' key={index}>
+                                    <CImage fluid style={{height: '100%'}} src={slide.imgPath} alt={slide.label} />
+                                    <CCarouselCaption className="d-none d-md-block">
+                                        <Typography 
+                                            sx={{
+                                                fontWeight: '600',
+                                                lineHeight: '24px',
+                                                fontSize: '20px',
+                                                fontFamily: 'Poppins',
+                                                color: bg
+                                            }}>
+                                                {slide.label}
+                                        </Typography>
+                                    </CCarouselCaption>
+                                </CCarouselItem>
+                            ))}
+                        </CCarousel>
                     </Box>
                 </Box>
             </Modal>
@@ -190,7 +412,10 @@ ProjectCard.propTypes = {
 
 ViewProject.propTypes = {
     isOpen: PropTypes.bool,
-    HandleClose: PropTypes.func 
+    HandleClose: PropTypes.func,
+    images: PropTypes.array,
+    bg: PropTypes.string,
+    textColor: PropTypes.string,
 }
 
 export default ProjectCard
