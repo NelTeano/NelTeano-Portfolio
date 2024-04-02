@@ -31,7 +31,7 @@ import {
 } from '@mui/icons-material'; 
 
 
-
+import Logo from '../../assets/PortfolioLogo.png'
 
 const navPages = [
     {
@@ -159,6 +159,7 @@ export default function Header({mt, onscrollChangeColor}) {
                                     NelTeano
                                 </Link>
                             </Typography>
+                            {/* <img width={'90px'} height={'100px'} src={Logo}></img> */}
                         </Box>
                         <Box sx={{display: { xs: 'none', md:'flex'}, gap:'40px', }}>
                             {navPages.map((pages, index)=>(

@@ -52,7 +52,7 @@ export default function Home() {
 
     console.log(theme);
 
-    
+
 
     const EnableAnimation = (enable) => {
         setActive(enable);
@@ -140,8 +140,6 @@ export default function Home() {
                             </Typography>
                         </Fade>
                     </InView>
-
-
                     <InView as="div" 
                         onChange={(inView) => { 
                             EnableAnimation(inView);
@@ -666,6 +664,7 @@ export default function Home() {
                                             bg={details.bg}
                                             textColor={details.textColor}
                                             btnColor={details.btnColor}
+                                            more={details.more}
                                         />
                             ))}
                         

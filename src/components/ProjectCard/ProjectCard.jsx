@@ -41,7 +41,7 @@ import {
 
 import { 
     IoLogoElectron as ElectronIcon,
-    IoLogoReact ,
+    IoLogoReact as ReactIcon,
     IoLogoJavascript ,
     IoLogoCss3 ,
     IoLogoHtml5 ,
@@ -61,11 +61,19 @@ import {
 
 
 
-function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
+function ProjectCard({title, about, link, img, bg, textColor, btnColor, more}) {
 
     const [handleModal, setModal] = useState(false);
 
-    console.log(handleModal)
+
+
+    // const Responsibilities = more.responsibilities
+
+    // const TechStackInfo = more.techStack.map((stacks) => {return (stacks) }) 
+    // const ResponsibilitiesInfo = more.responsibilities.map((stacks) => {return (stacks) })
+    // // {more.techStack.map((stacks, index) => (<p key={index}>{stacks.name}</p>))}
+    
+    // console.log(handleModal, TechStackInfo, ResponsibilitiesInfo);
 
     const handleOpen = () => setModal(true);
     const handleClose = () => setModal(false);
@@ -158,14 +166,32 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor}) {
                 </Box>
                 </Tooltip>
             </Box>
-            <ViewProject isOpen={handleModal} HandleClose={handleClose} images={img} bg={bg} textColor={textColor}/>
+            <ViewProject isOpen={handleModal} HandleClose={handleClose} images={img} bg={bg} textColor={textColor} title={title} more={more}/>
         </>
     )
 }
 
 
 
-const ViewProject = ({isOpen, HandleClose, images, bg, textColor}) => {
+
+
+
+
+
+
+
+
+
+const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) => {
+
+    const renderIcons = (iconName) => {
+        switch(iconName){
+            case 'React' :
+                return <ReactIcon fontSize={'20px'} />
+            case 'Electron' :
+                return <ElectronIcon fontSize={'20px'} />
+        }
+    }
 
     const style = {
         display: 'flex',
@@ -184,6 +210,7 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor}) => {
         boxShadow: 24,
         gap: {md: '60px'}
     };
+
 
     return (
         <>
@@ -215,7 +242,7 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor}) => {
                                     color: `${textColor}`
                                 }} 
                             >
-                                Hotel Booking Management System
+                                {title}
                             </Typography>
                         </Box>
                         <Box
@@ -238,54 +265,25 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor}) => {
                                 Tech Stack
                             </Typography>
                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px', }}>
-                                        <Box
-                                            sx={{
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                backgroundColor: 'transparent',
-                                                border: `solid 1px ${textColor}`,
-                                                width: '100px',
-                                                padding: 0.2,
-                                                borderRadius: '40px',
-                                                gap: '5px'
-                                            }}
-                                        >
-                                            <Typography >React</Typography> 
-                                            <ElectronIcon fontSize={'20px'} />
-                                        </Box>
-                                        <Box
-                                            sx={{
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                backgroundColor: 'transparent',
-                                                border: `solid 1px ${textColor}`,
-                                                width: '100px',
-                                                padding: 0.2,
-                                                borderRadius: '40px',
-                                                gap: '5px'
-                                            }}
-                                        >
-                                            <Typography >MaterialUI</Typography> 
-                                            
-                                        </Box>
-                                        <Box
-                                            sx={{
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                backgroundColor: 'transparent',
-                                                border: `solid 1px ${textColor}`,
-                                                width: '100px',
-                                                padding: 0.2,
-                                                borderRadius: '40px',
-                                                gap: '5px'
-                                            }}
-                                        >
-                                            <Typography >React</Typography> 
-                                            <ElectronIcon fontSize={'20px'} />
-                                        </Box>
+                                        {more.techStack.map((stacks, index) => (
+                                            <Box
+                                                key={index}
+                                                sx={{
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    backgroundColor: 'transparent',
+                                                    border: `solid 1px ${textColor}`,
+                                                    width: '100px',
+                                                    padding: 0.2,
+                                                    borderRadius: '40px',
+                                                    gap: '5px'
+                                                }}
+                                            >
+                                                <Typography >{stacks.name}</Typography> 
+                                                {renderIcons(stacks.icon)}
+                                            </Box>
+                                        ))}
                                 </Box>
                             
                             <Box
@@ -301,28 +299,13 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor}) => {
                                 >
                                     Resposibilities :
                                 </Typography>
-                                <Typography >
-                                    <List disablePadding sx={{ listStyleType: 'disc', listStylePosition: 'inside' }}>
-                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
-                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
-                                        </ListItem>
-                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
-                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  
-                                        </ListItem>
-                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
-                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
-                                        </ListItem>
-                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
-                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
-                                        </ListItem>
-                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
-                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. 
-                                        </ListItem>
-                                        <ListItem sx={{ display: 'list-item', fontSize: '15px' }}> 
-                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                        </ListItem>
+                                    <List disablePadding sx={{ listStyleType: 'disc', listStylePosition: 'inside' }}>                                      
+                                        {more.responsibilities.map((respo, index) => (
+                                                <ListItem key={index} sx={{ display: 'list-item', fontSize: '15px' }}>
+                                                    {respo}
+                                                </ListItem>
+                                        ))}
                                     </List>
-                                </Typography>
                             </Box>
 
                             <Typography 
@@ -343,12 +326,12 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor}) => {
                                     gap: '100px'
                                 }}
                             >
-                                <Link to={'https://github.com/NelTeano/'} target="_blank" rel="noopener noreferrer">
+                                <Link to={more.gitURL} target="_blank" rel="noopener noreferrer">
                                     <Typography>
                                         Source Code : <GitHubIcon />
                                     </Typography>
                                 </Link>
-                                <Link to={'https://portfolio-jonel.vercel.app/'} target="_blank" rel="noopener noreferrer">
+                                <Link to={more.prevURL} target="_blank" rel="noopener noreferrer">
                                     <Typography>
                                         Live View : <LinkNewTabIcon />
                                     </Typography>
@@ -408,6 +391,7 @@ ProjectCard.propTypes = {
     bg: PropTypes.string,
     btnColor: PropTypes.string,
     textColor: PropTypes.string,
+    more: PropTypes.object,
 }
 
 ViewProject.propTypes = {
@@ -416,6 +400,8 @@ ViewProject.propTypes = {
     images: PropTypes.array,
     bg: PropTypes.string,
     textColor: PropTypes.string,
+    title: PropTypes.string,
+    more: PropTypes.object,
 }
 
 export default ProjectCard

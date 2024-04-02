@@ -150,6 +150,41 @@ const projectDetails = [
                 imgPath: MobileView,
             },
         ],
+        more: {
+            techStack: [
+                {
+                    icon: 'React', 
+                    name: 'React'
+                },
+                {
+                    icon: 'Electron', 
+                    name: 'Electron'
+                }, 
+                {
+                    icon: 'React', 
+                    name: 'React'
+                }
+            ],
+            responsibilities : [
+                "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+            ],
+            gitURL: 'https://github.com/NelTeano/NelTeano-Portfolio',
+            prevURL: 'https://github.com/NelTeano/NelTeano-Portfolio'
+        },
+        // techStack: ['React', 'MongoDB', 'Express'],
+        // responsibilities : [
+        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+        // ],
+        // gitURL: 'https://github.com/NelTeano/NelTeano-Portfolio',
+        // prevURL: 'https://github.com/NelTeano/NelTeano-Portfolio'
     },
     {
         title: 'HOTEL BOOKING WEBSITE',
@@ -197,49 +232,78 @@ const projectDetails = [
                 imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
             },
         ],
+        more: {
+            techStack: [
+                    {
+                        icon: 'React', 
+                        name: 'React'
+                    }, 
+                    {
+                        icon: 'React', 
+                        name: 'React'
+                    }, 
+                    {
+                        icon: 'React', 
+                        name: 'React'
+                    }
+                ],
+                responsibilities : [
+                    "jojo mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                    "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                    "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                    "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                    "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+                ],
+                gitURL: 'https://github.com/NelTeano/NelTeano-Portfolio',
+                prevURL: 'https://portfolio-jonel.vercel.app/'
+        },
     },
-    {
-        title: 'BEAN BLOCK MOBILE',
-        about: 'A mobile app design for Bean Block’s E-commerce app ',
-        link: '#',
-        bg: '#FF9760',
-        textColor: '#51240D',
-        btnColor: '#51240D',
-        img: 
-        [   
-            {   
-                label: 'Test1',
-                imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
-            },
-            {
-                label: 'Test2',
-                imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-            },
-        ],
-    },
-    {
-        title: 'BEAN BLOCK MOBILE',
-        about: 'A mobile app design for Bean Block’s E-commerce app ',
-        link: '#',
-        bg: '#51240D',
-        textColor: '#FFF',
-        btnColor: '#EE9765',
-        img: 
-        [   
-            {   
-                label: 'Test1',
-                imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-            },
-            {
-                label: 'Test2',
-                imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-            },
-            {
-                label: 'Test3',
-                imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-            },
-        ],
-    },
+    // {
+    //     title: 'BEAN BLOCK MOBILE',
+    //     about: 'A mobile app design for Bean Block’s E-commerce app ',
+    //     link: '#',
+    //     bg: '#FF9760',
+    //     textColor: '#51240D',
+    //     btnColor: '#51240D',
+    //     img: 
+    //     [   
+    //         {   
+    //             label: 'Test1',
+    //             imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+    //         },
+    //         {
+    //             label: 'Test2',
+    //             imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+    //         },
+    //     ],
+    // },
+    // {
+    //     title: 'BEAN BLOCK MOBILE',
+    //     about: 'A mobile app design for Bean Block’s E-commerce app ',
+    //     link: '#',
+    //     bg: '#51240D',
+    //     textColor: '#FFF',
+    //     btnColor: '#EE9765',
+    //     img: 
+    //     [   
+    //         {   
+    //             label: 'Test1',
+    //             imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+    //         },
+    //         {
+    //             label: 'Test2',
+    //             imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+    //         },
+    //         {
+    //             label: 'Test3',
+    //             imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+    //         },
+    //     ],
+    //     more: {
+    //         techStack: [
+    //             {icon: 'React', name: 'React'}, {icon: 'React', name: 'React'}, {icon: 'React', name: 'React'}]
+    //     },
+    // },
     // {
     //     title: 'BEAN BLOCK MOBILE',
     //     about: 'A mobile app design for Bean Block’s E-commerce app ',

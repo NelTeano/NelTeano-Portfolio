@@ -314,6 +314,7 @@ export default function Projects() {
                                                     bg={details.bg}
                                                     textColor={details.textColor}
                                                     btnColor={details.btnColor}
+                                                    more={details.more}
                                                 />
                                         </AnimationContainer>
                                     ))} 

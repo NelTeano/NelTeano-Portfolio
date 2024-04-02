@@ -1,16 +1,40 @@
+import { useState, useEffect } from 'react'
 import { Button, Box } from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function ScrollUp() {
+
+    const [isRender, setRender] = useState({color: 'transparent', bg: 'transparent'})
+
     const GoTopWindow = () => {
         window.scrollTo(0, 0);
     }
+
+    const renderOnScroll = () => {
+        if (window.scrollY < 73) {
+            return setRender({color: 'transparent', bg: 'transparent'})
+        } else if (window.scrollY > 70) {
+            return setRender({color: 'black', bg: '#fff'})
+        } 
+    }
+
+
+    useEffect(() => {
+        window.addEventListener('scroll', renderOnScroll);
+
+        return () =>
+            window.removeEventListener('scroll', renderOnScroll);
+    }, []);
+
+
+
+
 
     return (
         
         <Box
         sx={{
-            display: 'fixed',
+            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             position: 'fixed',
@@ -21,7 +45,8 @@ export default function ScrollUp() {
             borderRadius: '50%',
             zIndex: 999,
             cursor: 'pointer',
-            backgroundColor: '#FFF',
+            backgroundColor: isRender.bg,
+            transition: '0.8s',
             '&:hover': {
                 background: "#202020",
                 '& .upBTN': {
@@ -34,7 +59,7 @@ export default function ScrollUp() {
         }}
         onClick={GoTopWindow}
     >
-        <KeyboardArrowUpIcon sx={{color: 'black', fontSize: {md: '40px', xs: '25px'}}} className="upBTN" />
+        <KeyboardArrowUpIcon sx={{color: isRender.color, fontSize: {md: '40px', xs: '25px'}, transition: '0.8s',}} className="upBTN" />
     </Box>
     )
 }
