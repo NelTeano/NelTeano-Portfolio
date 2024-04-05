@@ -12,6 +12,7 @@ import Receipt from './Receipt Page.png'
 import Registration from './Registration.png'
 import SingleOrder from './Single Order.png'
 import TrackOrder from './Track Order Page.png'
+import Video from './REFILLING-VID.mp4'
 
 export { 
     Home,
@@ -27,5 +28,6 @@ export {
     Receipt,
     Registration,
     SingleOrder,
-    TrackOrder
+    TrackOrder,
+    Video
 }

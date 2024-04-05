@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 // PAGES
 import HomepagePage from './pages/Home/Home'
 import ProjectsPage from './pages/Projects/Projects'
+import TestingPage from './pages/TestingPage'
 
 function App() {
   
@@ -16,6 +17,10 @@ function App() {
     {
       pathname: "/Projects",
       element: ProjectsPage
+    },
+    {
+      pathname: "/Testing",
+      element: TestingPage
     },
   ]
 

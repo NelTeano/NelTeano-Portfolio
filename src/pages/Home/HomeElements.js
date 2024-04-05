@@ -23,18 +23,21 @@ import {
     Receipt,
     Registration,
     SingleOrder,
-    TrackOrder 
+    TrackOrder ,
+    Video as RefillingDemo
 } from '../../assets/WATER-REFILLING-PROJECT/Exporter'
 
-// import { 
-//     Home as HotelHome,
-//     Home1 as HotelHome1,
-//     Home2 as HotelHome2,
-//     RoomsCollection,
-//     RoomsAmenties,
-//     DateBook,
-//     BookRoom
-// } from '../../assets/HOTEL-BOOKING/Exporter'
+import { 
+    Home as HotelHome,
+    Home1 as HotelHome1,
+    Home2 as HotelHome2,
+    Home3 as HotelHome3,
+    RoomsCollection,
+    RoomsAmenties,
+    DateBook,
+    BookRoom,
+    Video as HotelDemo
+} from '../../assets/HOTEL-BOOKING/Exporter'
 
 
 
@@ -172,6 +175,8 @@ const projectDetails = [
                 "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
                 "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
             ],
+            videoSrc: RefillingDemo,
+            videoSpeed: 4,
             gitURL: 'https://github.com/NelTeano/NelTeano-Portfolio',
             prevURL: 'https://github.com/NelTeano/NelTeano-Portfolio'
         },
@@ -195,41 +200,37 @@ const projectDetails = [
         btnColor: '#FFF',
         img: 
         [   
-            // {   
-            //     label: 'Landing Page',
-            //     imgPath: HotelHome,
-            // },
-            // {   
-            //     label: 'Landing Page',
-            //     imgPath: HotelHome1,
-            // },
-            // {   
-            //     label: 'Landing Page',
-            //     imgPath: HotelHome2,
-            // },
-            // {   
-            //     label: 'Landing Page',
-            //     imgPath: RoomsCollection,
-            // },
-            // {   
-            //     label: 'Landing Page',
-            //     imgPath: RoomsAmenties,
-            // },
-            // {   
-            //     label: 'Landing Page',
-            //     imgPath: DateBook,
-            // },
-            // {   
-            //     label: 'Landing Page',
-            //     imgPath: BookRoom,
-            // },
             {   
                 label: 'Landing Page',
-                imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+                imgPath: HotelHome,
             },
-            {
-                label: 'Booking Page',
-                imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+            {   
+                label: 'Landing Page',
+                imgPath: HotelHome1,
+            },
+            {   
+                label: 'Landing Page',
+                imgPath: HotelHome2,
+            },
+            {   
+                label: 'Landing Page',
+                imgPath: HotelHome3,
+            },
+            {   
+                label: 'Room Collection',
+                imgPath: RoomsCollection,
+            },
+            {   
+                label: 'Show Room Amenties',
+                imgPath: RoomsAmenties,
+            },
+            {   
+                label: 'Booking Calendar',
+                imgPath: DateBook,
+            },
+            {   
+                label: 'Booking Form',
+                imgPath: BookRoom,
             },
         ],
         more: {
@@ -254,6 +255,8 @@ const projectDetails = [
                     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
                     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
                 ],
+                videoSrc: HotelDemo,
+                videoSpeed: 2,
                 gitURL: 'https://github.com/NelTeano/NelTeano-Portfolio',
                 prevURL: 'https://portfolio-jonel.vercel.app/'
         },

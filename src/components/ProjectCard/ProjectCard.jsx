@@ -1,3 +1,4 @@
+import ReactPlayer from 'react-player'
 import { useState } from 'react';
 import PropTypes from 'prop-types'
 
@@ -32,6 +33,8 @@ import {
 
 import Carousel from '../Carousel/Carousel'
 
+
+import videoSrc from '../../assets/WATER-REFILLING-PROJECT/REFILLING-VID.mp4'
 
 // ICONS
 import {
@@ -182,7 +185,7 @@ function ProjectCard({title, about, link, img, bg, textColor, btnColor, more}) {
 
 
 
-const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) => {
+const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
 
     const renderIcons = (iconName) => {
         switch(iconName){
@@ -195,20 +198,21 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) 
 
     const style = {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: {md: 'row', xs: 'column'},
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '80%',
-        height: {md: '850px', xs: '600px'},
+        width: {md: '85%', xs: '90%'},
+        height: {md: '750px', xs: '700px'},
+        overflowY: 'auto',
         bgcolor: 'background.paper',
         backgroundColor: `${bg}`,
         // border: `1px solid ${textColor}`,
         boxShadow: 24,
-        gap: {md: '60px'}
+        gap: {md: '60px'},
     };
 
 
@@ -226,7 +230,7 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) 
                             display: 'flex',
                             flexDirection: 'column',
                             background: 'transparent',
-                            width: '800px',
+                            width: {md: '800px', xs: '300px'},
                             gap: '40px'
                         }}
                     >
@@ -274,13 +278,14 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) 
                                                     alignItems: 'center',
                                                     backgroundColor: 'transparent',
                                                     border: `solid 1px ${textColor}`,
-                                                    width: '100px',
+                                                    width: {md: '100px', xs: '70px'},
+                                                    height: {xs: 'auto'},
                                                     padding: 0.2,
                                                     borderRadius: '40px',
                                                     gap: '5px'
                                                 }}
                                             >
-                                                <Typography >{stacks.name}</Typography> 
+                                                <Typography sx={{fontSize: {md: '14px', xs: '10px'}}} >{stacks.name}</Typography> 
                                                 {renderIcons(stacks.icon)}
                                             </Box>
                                         ))}
@@ -301,7 +306,7 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) 
                                 </Typography>
                                     <List disablePadding sx={{ listStyleType: 'disc', listStylePosition: 'inside' }}>                                      
                                         {more.responsibilities.map((respo, index) => (
-                                                <ListItem key={index} sx={{ display: 'list-item', fontSize: '15px' }}>
+                                                <ListItem key={index} sx={{ display: 'list-item', fontSize: {md: '15px', xs: '10px'} }}>
                                                     {respo}
                                                 </ListItem>
                                         ))}
@@ -342,15 +347,17 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) 
 
                     <Box 
                         sx={{
-                            display: 'flex',
+                            display: {md: 'flex', xs: 'none'},
+                            flexDirection: 'column',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            background: `rgba(19, 19, 19, 1)`,
-                            height: '100%',
-                            width: '600px',
+                            background: `rgb(19, 19, 19, 1)`,
+                            height: {md: '100%', xs: '100px'},
+                            width: 'auto',
+                            gap: '15px'
                         }}
                     >
-                        <CCarousel 
+                        {/* <CCarousel 
                             controls 
                             transition="crossfade" 
                             className="carousel"
@@ -372,7 +379,22 @@ const ViewProject = ({isOpen, HandleClose, images, bg, textColor, title, more}) 
                                     </CCarouselCaption>
                                 </CCarouselItem>
                             ))}
-                        </CCarousel>
+                        </CCarousel> */}
+
+                        <ReactPlayer width={'auto'} controls={false} muted playbackRate={more.videoSpeed} loop={true} url={more.videoSrc} playing={true} />
+                        <Typography
+                                sx={{
+                                    fontFamily: 'Stretch Pro',
+                                    fontSize: {md: '30px', xs: '20px'},
+                                    fontWeight: '400',
+                                    lineHeight: {md: '49px', xs: '20px'},
+                                    letterSpacing: '0.1px',
+                                    textAlign: 'left',
+                                    color: `${textColor}`
+                                }} 
+                            >
+                                Demo Video
+                        </Typography>
                     </Box>
                 </Box>
             </Modal>
@@ -397,7 +419,6 @@ ProjectCard.propTypes = {
 ViewProject.propTypes = {
     isOpen: PropTypes.bool,
     HandleClose: PropTypes.func,
-    images: PropTypes.array,
     bg: PropTypes.string,
     textColor: PropTypes.string,
     title: PropTypes.string,
