@@ -216,7 +216,7 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
         // border: `1px solid ${textColor}`,
         boxShadow: 24,
         gap: {md: '60px', xs: '90px'},
-        paddingBottom: '20px',
+        paddingBottom: {md: 0, xs: '20px'},
     };
 
 
@@ -350,6 +350,7 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
                             <Box sx={{display: 'flex', justifyContent: 'center'}}>
                                 <Button
                                         sx={{
+                                            display: {md: 'none'},
                                             backgroundColor: 'black', 
                                             color: '#FFF',
                                             width: '100px'

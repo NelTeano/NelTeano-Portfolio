@@ -159,10 +159,10 @@ const projectDetails = [
                 label: 'Login Page',
                 imgPath: LoginPage,
             },
-            {   
-                label: 'MobileView',
-                imgPath: MobileView,
-            },
+            // {   
+            //     label: 'MobileView',
+            //     imgPath: MobileView,
+            // },
         ],
         more: {
             techStack: [
