@@ -2,8 +2,7 @@ import PropTypes from 'prop-types'
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import { motion, useAnimation, } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion, } from "framer-motion";
 import { InView } from 'react-intersection-observer';
 
 
@@ -13,6 +12,7 @@ import Navbar from '../../components/Header/Header'
 import ParallaxText from '../../components/ParrallaxText/ParallaxText';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import Footer from '../../components/Footer/Footer'
+import ScrollUp from "../../components/ScrollUp/ScrollUp";
 import { PacmanLoader } from 'react-spinners'
 
 
@@ -21,6 +21,7 @@ import {
     Typography,
     Box,
     Grow,
+    ToggleButton
 } from '@mui/material';
 
 
@@ -142,14 +143,15 @@ export default function Projects() {
                             id="tsparticles"
                             options={options}
                         />
-                        <Navbar />
+                        <ScrollUp />
+                        <Navbar onscrollChangeColor={true} />
                         <Box
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-around',
                                 flexDirection: {md: 'row', xs: 'column'},
-                                height: '800px',
+                                height: {md: '800px', xs: '1000px'},
                             }}
                         >
                             <Box
@@ -162,11 +164,11 @@ export default function Projects() {
                                 <Typography
                                     sx={{
                                         fontWeight: '400',
-                                        fontSize: {md:' 80px', xs: '70px'},
-                                        textAlign: 'left',
+                                        fontSize: {md:' 80px', xs: '35px'},
+                                        textAlign: {md: 'left', xs: 'center'},
                                         fontFamily: 'Stretch Pro, Arial, sans-serif',
                                         color: '#FFF',
-                                        lineHeight: '100px'
+                                        lineHeight: {md: '100px', xs: '50px'}
                                     }}
                                 >
                                     <span style={{
@@ -193,16 +195,17 @@ export default function Projects() {
                                     sx={{
                                         display: {md: 'flex'},
                                         fontFamily: 'Poppins',
-                                        fontSize: {md: '20px', xs: '14px'},
+                                        fontSize: {md: '20px', xs: '15px'},
                                         fontWeight: '400',
                                         lineHeight: '30px',
                                         textAlign: {md: 'left', xs: 'center'},
-                                        color: '#FFF'
+                                        color: '#FFF',
+                                        width: {md: 'auto', xs: '350px'}
                                     }}
                                 >
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a ornare enim.  Mauris ornare <br></br>
-                                    tristique venenatis. Aenean ultricies posuere volutpat.  Sed facilisis nisl vel felis cursus, <br></br>
-                                    sodales congue lacus porttitor  consectetur adipiscing elit. Suspendisse a ornare
+                                    Here you&apos;ll find a showcase of the various coding projects I&apos;ve worked on. Each one offers   <br></br>
+                                    a unique glimpse into my skills and experiences as a developer, reflecting my dedication<br></br>
+                                    to craftsmanship and innovation in Web Development and beyond.
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -213,21 +216,22 @@ export default function Projects() {
                                         textAlign: {md: 'left', xs: 'center'},
                                         color: '#FFF'
                                     }}
+                                    
                                 >
                                     <Link
-                                        className='view-design'
-                                        to={'/'}
+                                        onClick={() => window.scrollTo(0, 1100)}
                                     >
                                         View Designs <ArrowForwardIosIcon />
                                     </Link>
                                 </Typography>
                             </Box>
-                                <img style={{zIndex: 100}} src={myPicture}></img>
+                                <img className={'md:w-[400px] xs:w-[300px]'} style={{zIndex: 100}} src={myPicture}></img>
                         </Box>
+                        
                         <Box 
                             sx={{
                                 paddingTop: {md: '10vh', xs: '10vh'},
-                                paddingBottom: {md: '0vh', xs: '30vh'},
+                                paddingBottom: {md: '0vh', xs: '0vh'},
                                 position: 'relative'
                             }}
                         >

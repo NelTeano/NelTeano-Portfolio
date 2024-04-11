@@ -5,7 +5,18 @@ import postmanImg from '../../assets/postmanImg.jpg'    // SOFTWARE TOOLS IMG
 import mysqlImg from '../../assets/mysqlImg.png'    // SOFTWARE TOOLS IMG
 import mongodbImg from '../../assets/mongodbImg.png'    // SOFTWARE TOOLS IMG
 
-
+import htmlImg from '../../assets/TOOLS-IMAGES/htmls.webp'
+import cssImg from '../../assets/TOOLS-IMAGES/css.png'
+import chakraImg from '../../assets/TOOLS-IMAGES/chakra.png'
+import electronImg from '../../assets/TOOLS-IMAGES/electron.png'
+import javascriptImg from '../../assets/TOOLS-IMAGES/javascript.png'
+import mongooseImg from '../../assets/TOOLS-IMAGES/mongoose.png'
+import muiImg from '../../assets/TOOLS-IMAGES/mui.png'
+import nodejsImg from '../../assets/TOOLS-IMAGES/nodejs.png'
+import reactImg from '../../assets/TOOLS-IMAGES/react.png'
+import typescriptImg from '../../assets/TOOLS-IMAGES/typescript1.png'
+import angularImg from '../../assets/TOOLS-IMAGES/angular.png'
+import graphqlImg from '../../assets/TOOLS-IMAGES/graphql.png'
 
 
 // PROJECT TOOLS PICTURES
@@ -180,16 +191,6 @@ const projectDetails = [
             gitURL: 'https://github.com/NelTeano/NelTeano-Portfolio',
             prevURL: 'https://github.com/NelTeano/NelTeano-Portfolio'
         },
-        // techStack: ['React', 'MongoDB', 'Express'],
-        // responsibilities : [
-        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
-        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
-        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.  Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
-        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
-        //     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
-        // ],
-        // gitURL: 'https://github.com/NelTeano/NelTeano-Portfolio',
-        // prevURL: 'https://github.com/NelTeano/NelTeano-Portfolio'
     },
     {
         title: 'HOTEL BOOKING WEBSITE',
@@ -449,7 +450,59 @@ const projectDetails = [
 ]
 
 
+const techSkills = [
+    {
+        toolname: 'HTML',
+        toolIcon: htmlImg,
+    },
+    {
+        toolname: 'CSS',
+        toolIcon: cssImg,
+    },
+    {
+        toolname: 'Material UI',
+        toolIcon: muiImg,
+    },
+    {
+        toolname: 'ChakraUI',
+        toolIcon: chakraImg,
+    },
+    {
+        toolname: 'ReactJS',
+        toolIcon: reactImg,
+    },
+    {
+        toolname: 'AngularJS',
+        toolIcon: angularImg,
+    },
+    {
+        toolname: 'Javascript',
+        toolIcon: javascriptImg,
+    },
+    {
+        toolname: 'Typescript',
+        toolIcon: typescriptImg,
+    },
+    {
+        toolname: 'ElectronJS',
+        toolIcon: electronImg,
+    },
+    {
+        toolname: 'NodeJS',
+        toolIcon:  nodejsImg,
+    },
+    {
+        toolname: 'Mongoose',
+        toolIcon: mongooseImg,
+    },
+    {
+        toolname: 'GraphQL',
+        toolIcon: graphqlImg,
+    },
+];
+
 export { 
     projectDetails,
-    toolsUsed
+    toolsUsed,
+    techSkills
 }

@@ -92,15 +92,15 @@ export default function Header({mt, onscrollChangeColor}) {
                 })
             } else if (window.scrollY > 70) {
                 return setHeaderColor({
-                    color: 'black',
-                    bgColor: '#feb300',
+                    color: 'white',
+                    bgColor: 'rgb(19, 19, 19, 1)',
                     fontWeight: '600'
                 })
             } 
         }
         
         // useEffect(() => {
-        //     window.addEventListener('scroll', listenScrollEvent);
+            window.addEventListener('scroll', listenScrollEvent);
     
         //     return () =>
         //         window.removeEventListener('scroll', listenScrollEvent);

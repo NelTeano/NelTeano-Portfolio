@@ -21,7 +21,7 @@ import {
     Paper,
     Button,
     Modal,
-    Tooltip
+    Tooltip,
 } from '@mui/material';
 
 import { 
@@ -39,8 +39,11 @@ import videoSrc from '../../assets/WATER-REFILLING-PROJECT/REFILLING-VID.mp4'
 // ICONS
 import {
     GitHub as GitHubIcon,
-    OpenInNew as LinkNewTabIcon
+    OpenInNew as LinkNewTabIcon,
+    Close as CloseIcon
 } from '@mui/icons-material'; 
+
+
 
 import { 
     IoLogoElectron as ElectronIcon,
@@ -198,7 +201,7 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
 
     const style = {
         display: 'flex',
-        flexDirection: {md: 'row', xs: 'column'},
+        flexDirection: {md: 'row', xs: 'column-reverse'},
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
@@ -206,13 +209,14 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: {md: '85%', xs: '90%'},
-        height: {md: '750px', xs: '700px'},
+        height: {md: '750px', xs: 'auto'},
         overflowY: 'auto',
         bgcolor: 'background.paper',
         backgroundColor: `${bg}`,
         // border: `1px solid ${textColor}`,
         boxShadow: 24,
-        gap: {md: '60px'},
+        gap: {md: '60px', xs: '90px'},
+        paddingBottom: '20px',
     };
 
 
@@ -242,7 +246,7 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
                                     fontWeight: '400',
                                     lineHeight: {md: '49px', xs: '20px'},
                                     letterSpacing: '0.1px',
-                                    textAlign: 'left',
+                                    textAlign: {md: 'left', xs: 'center'},
                                     color: `${textColor}`
                                 }} 
                             >
@@ -324,11 +328,12 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
                             >
                                 Resources :
                             </Typography>
+
                             <Box
                                 sx={{
                                     display: 'flex',
-                                    flexDirection: 'row',
-                                    gap: '100px'
+                                    flexDirection: {md: 'row', xs: 'column'},
+                                    gap: {md: '100px', xs: '20px'},
                                 }}
                             >
                                 <Link to={more.gitURL} target="_blank" rel="noopener noreferrer">
@@ -342,12 +347,24 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
                                     </Typography>
                                 </Link>
                             </Box>
+                            <Box sx={{display: 'flex', justifyContent: 'center'}}>
+                                <Button
+                                        sx={{
+                                            backgroundColor: 'black', 
+                                            color: '#FFF',
+                                            width: '100px'
+                                        }}
+                                        onClick={HandleClose}
+                                    >
+                                        Close
+                                </Button>
+                            </Box>
                         </Box>
                     </Box>
 
                     <Box 
                         sx={{
-                            display: {md: 'flex', xs: 'none'},
+                            display: {md: 'flex', xs: 'flex'},
                             flexDirection: 'column',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -380,10 +397,19 @@ const ViewProject = ({isOpen, HandleClose, bg, textColor, title, more}) => {
                                 </CCarouselItem>
                             ))}
                         </CCarousel> */}
-
-                        <ReactPlayer width={'auto'} controls={false} muted playbackRate={more.videoSpeed} loop={true} url={more.videoSrc} playing={true} />
+                        
+                        <ReactPlayer 
+                            width={'auto'} 
+                            controls={false} 
+                            playbackRate={more.videoSpeed} 
+                            loop={true} 
+                            url={more.videoSrc} 
+                            playing={true} 
+                            muted 
+                        />
                         <Typography
                                 sx={{
+                                    display: {md: 'flex', xs: 'none'},
                                     fontFamily: 'Stretch Pro',
                                     fontSize: {md: '30px', xs: '20px'},
                                     fontWeight: '400',

@@ -28,6 +28,24 @@ import {
     TrendingFlat as ArrowForwardIosIcon,
 } from '@mui/icons-material/';
 
+import { 
+    IoLogoElectron as ElectronIcon,
+    IoLogoReact as ReactIcon,
+    IoLogoJavascript ,
+    IoLogoCss3 ,
+    IoLogoHtml5 ,
+    IoLogoNodejs ,
+    
+} from "react-icons/io5";
+
+import { 
+    SiExpress ,
+    SiMongodb ,
+    SiTypescript ,
+    SiMysql ,
+    SiChakraui 
+} from "react-icons/si";
+
 // CONTEXT
 import { Theme } from '../../context/Theme/ThemeContext'
 import { useContext } from 'react';
@@ -36,12 +54,14 @@ import { useContext } from 'react';
 import RightEllipse from '../../assets/Ellipse1.png'
 import LeftEllipse from '../../assets/Ellipse2.png'
 import AvatarImg from '../../assets/AVATAR.png'
+import muiImg from '../../assets/TOOLS-IMAGES/css.png'
 
 
 // ELEMENTS
 import { 
     projectDetails,
-    toolsUsed
+    toolsUsed,
+    techSkills
 } from "./HomeElements"
 
 
@@ -428,6 +448,107 @@ export default function Home() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexDirection: 'column',
+                        height: {md: '500px', xs: '1500px'},
+                        gap: {md: '48px', xs: '30px'}
+                    }}
+                >
+                        <Typography
+                            sx={{
+                                fontFamily: 'Stretch Pro',
+                                fontSize: {md: '66px', xs: '40px'},
+                                fontWeight: '400',
+                                lineHeight: '67px',
+                                textAlign: 'center',
+                                color: '#FFF',
+                                letterSpacing: {md: '0.05em', xs:'0.1em' },
+                            }}          
+                        >
+                            TECH SKILLS 
+                        </Typography>
+                        {/* <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                gap: {md: '85px', xs: '20px'},
+                                fontFamily:'Poppins',
+                                fontWeight: '400',
+                                color: '#FFF'
+                            }}
+                        >
+                            {skillsList()}
+                        </Box> */}
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                width: {md: '1000px', xs: '300px'},
+                                flexWrap: 'wrap',
+                                gap: {md: '20px', xs: '20px'},
+                            }}
+                        >
+                            {techSkills.map((skills, index) => (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        backgroundColor: 'transparent',
+                                        height: '60px',
+                                        width: 'auto',
+                                        minWidth: {md: '150px', xs: '200px'},
+                                        gap: '10px',
+                                        borderRadius: '10px',
+                                        border: 'solid #ffb400 1px',
+                                        paddingRight: '15px'
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            width: '70px',
+                                            height: '100%',
+                                            backgroundColor: 'white',
+                                            borderTopLeftRadius: '10px',
+                                            borderBottomLeftRadius: '10px',
+                                            background: `url(${skills.toolIcon})`,
+                                            backgroundSize: '60px 50px',
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundPosition: 'center',
+                                            paddingTop: 2,
+                                            paddingBottom: 2
+                                        }}
+                                    >
+                                        
+                                    </Box>
+                                    <Typography
+                                        sx={{
+                                            fontWeight: '400',
+                                            fontSize: {md:' 15px', xs: '10px'},
+                                            letterSpacing: '0.5px',
+                                            textAlign: 'center',
+                                            color: '#FFF',
+                                            fontFamily: 'Stretch Pro, Arial, sans-serif',
+                                            // WebkitTextFillColor: 'transparent',
+                                            // WebkitTextStrokeWidth: '1px',
+                                            // WebkitTextStrokeColor: '#FFF'
+                                        }}
+                                    >
+                                        {skills.toolname}
+                                    </Typography>
+                                </Box>
+                            ))}
+                        </Box>
+                </Box>
+
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
                         height: '500px',
                         gap: {md: '48px', xs: '30px'}
                     }}
@@ -438,12 +559,12 @@ export default function Home() {
                                 fontSize: {md: '66px', xs: '40px'},
                                 fontWeight: '400',
                                 lineHeight: '67px',
-                                textAlign: 'left',
+                                textAlign: 'center',
                                 color: '#FFF',
                                 letterSpacing: {md: '0.05em', xs:'0.1em' },
                             }}          
                         >
-                            SKILLS 
+                            SOFT SKILLS
                         </Typography>
                         <Box
                             sx={{
@@ -650,7 +771,7 @@ export default function Home() {
                             alignItems: 'center',
                             flexDirection: 'column',
                             width: '100%',
-                            gap: {md: '35px', xs: '50px'},
+                            gap: {md: '80px', xs: '50px'},
                             mb: {md: 10, xs: 0}
                         }}
                     >
@@ -731,3 +852,36 @@ const skillsList = () => {
         </>
     );
 }
+
+// const SoftSkills = () => {
+
+//     const lineStyle = {
+//         fontSize: {md: '20px', xs: '15px'},
+//         lineHeight: '30px'
+//     }
+
+//     return (
+//         <>
+//             <ul>
+//                 <li><Typography sx={lineStyle}>HTML</Typography></li>
+//                 <li><Typography sx={lineStyle}>CSS</Typography></li>
+//                 <li><Typography sx={lineStyle}>Material UI</Typography></li>
+//                 <li><Typography sx={lineStyle}>ChakraUI</Typography></li>
+//             </ul>
+
+//             <ul>
+//                 <li><Typography sx={lineStyle}>ReactJS</Typography></li>
+//                 <li><Typography sx={lineStyle}>AngularJS</Typography></li>
+//                 <li><Typography sx={lineStyle}>Javascript</Typography></li>
+//                 <li><Typography sx={lineStyle}>Typescript</Typography></li>
+//             </ul>
+
+//             <ul>
+//                 <li><Typography sx={lineStyle}>ElectronJS</Typography></li>
+//                 <li><Typography sx={lineStyle}>NodeJS</Typography></li>
+//                 <li><Typography sx={lineStyle}>MongoDB</Typography></li>
+//                 <li><Typography sx={lineStyle}>RestAPI</Typography></li>
+//             </ul>
+//         </>
+//     );
+// }
