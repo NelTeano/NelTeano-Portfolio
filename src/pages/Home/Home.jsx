@@ -543,7 +543,7 @@ export default function Home() {
                         </Box>
                 </Box>
 
-                <Box
+                {/* <Box
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
@@ -578,7 +578,7 @@ export default function Home() {
                         >
                             {skillsList()}
                         </Box>
-                </Box>
+                </Box> */}
 
 
 
